@@ -8,7 +8,7 @@ Web UI Team - What do we do:
 
 ## web-ui technology 101
 
-The repository structure consists of three subfolders dedicated to different areaas of web-crawler.
+The repository structure consists of three subfolders dedicated to different areaas of web-ui.
 
 To briefly explain the structure:
 

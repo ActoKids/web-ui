@@ -69,7 +69,7 @@ export class UserForm extends Component {
       cont_email,
       cont_person,
       cont_phone,
-      start_date_,
+      start_date,
       start_time,
       end_time,
       end_date,

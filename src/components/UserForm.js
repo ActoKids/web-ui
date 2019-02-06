@@ -53,10 +53,10 @@ export class UserForm extends Component {
       cont_email,
       cont_person,
       cont_phone,
-      start_date_time,
+      start_date,
       start_time,
       end_time,
-      end_date_time,
+      end_date,
       cost,
       activity_type
     } = this.state;
@@ -69,10 +69,10 @@ export class UserForm extends Component {
       cont_email,
       cont_person,
       cont_phone,
-      start_date_time,
+      start_date_,
       start_time,
       end_time,
-      end_date_time,
+      end_date,
       cost,
       activity_type
     };

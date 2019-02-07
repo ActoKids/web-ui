@@ -3,7 +3,7 @@ import React, { Component} from 'react';
 import './LoginPage.css';
 import { userService } from '../services';
 
-import RegisterPage from '../RegisterPage/RegisterPage';
+import { register } from '../serviceWorker';
 
 
 
@@ -58,8 +58,6 @@ export default class LoginPage extends Component{
             );
     }
 
-
-
     render(){
         const { username, password, submitted, loading, error} = this.state;
         return (
@@ -70,7 +68,7 @@ export default class LoginPage extends Component{
                         <p><b>Password:</b> johncena</p>
                     </div>
 
-                <form className="form-signin form" onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit}>
 
                     <h1 className="h3 mb-3 font-weight-normal text-dark">Please Login</h1>
 
@@ -100,13 +98,13 @@ export default class LoginPage extends Component{
                         <div className={'alert alert-danger'}>{error}</div>
                     }
 
+                
                 </form>
 
-                {/* <div className="form-group">
-                <button class="btn btn-lg btn-block register-button" onClick={RegisterPage}>Register</button> 
+            
+                <a href="/register" className="btn btn-lg btn-block register-button">Register</a>
 
-                </div> */}
-                <p class="mt-5 mb-3 text-muted">&copy; 2019 Actokids</p>
+                <p class="mt-5 mb-3 text-muted"><small>Copyright &copy; 2019 Actokids</small></p>
             </div>
         );
     }

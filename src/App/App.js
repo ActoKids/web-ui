@@ -18,10 +18,12 @@ class App extends Component {
             <div>
               <PrivateRoute exact path="/" component={HomePage} />
               <Route path="/login" component={LoginPage} />
-
+              <Route path="/register" component={RegisterPage} />
             </div>
+
           </Router>
         </header>
+
       </div>
 
       

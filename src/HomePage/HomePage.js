@@ -32,7 +32,7 @@ export default class HomePage extends Component{
             // <div className="col-md-6 col-md-offset-3 text-dark">
                 <div className="text-dark">
                 <h1>Hi {user.firstName}!</h1>
-                <p>You're logged.</p>
+                <p>You're logged in.</p>
                 <h3>Welcome to ActoKids</h3>
                 {users.loading && <em> Organization</em>}
                 {users.length &&

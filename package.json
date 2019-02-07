@@ -1,0 +1,19 @@
+{
+  "name": "web-ui",
+  "version": "1.0.0",
+  "description": "[![Build Status][travis-image]][travis]",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ActoKids/web-ui.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ActoKids/web-ui/issues"
+  },
+  "homepage": "https://github.com/ActoKids/web-ui#readme"
+}

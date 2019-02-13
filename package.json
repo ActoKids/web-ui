@@ -16,7 +16,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-    "test_s3": exit 0"
+    "test_s3": "exit 0"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,0 +1,5 @@
+deploy:
+  provider: s3
+bucket: "acktokids1"
+skip_cleanup: true
+region: us-east-2

@@ -7,22 +7,31 @@ import HomePage  from '../HomePage/HomePage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
+import UserForm from '../updateEvent/UserForm';
+
+import {MuiThemeProvider } from 'material-ui/styles';
+
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
           <Router>
             <div>
+              <header className="App-header">
+
               <PrivateRoute exact path="/" component={HomePage} />
               <Route path="/login" component={LoginPage} />
               <Route path="/register" component={RegisterPage} />
+              </header>
+
+                  <MuiThemeProvider>
+                    <UserForm />
+                  </MuiThemeProvider>
             </div>
 
           </Router>
-        </header>
 
       </div>
 

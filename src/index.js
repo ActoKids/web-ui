@@ -4,10 +4,8 @@ import './index.css';
 import App from './App/App';
 
 
-
 import * as serviceWorker from './serviceWorker';
 
-import RegisterPage from './RegisterPage/RegisterPage';
 
 //Fake backend
 import { configureFakeBackend } from './helpers/fake-backend';

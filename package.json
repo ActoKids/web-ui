@@ -7,7 +7,7 @@
     "@material/dialog": "^0.44.0",
     "bootstrap": "^4.2.1",
     "config": "^3.0.1",
-    "jquery": "^1.9.1",
+    "jquery": ">=3.0.0",
     "json-server": "^0.14.2",
     "material-ui": "^0.20.2",
     "react": "^16.8.2",

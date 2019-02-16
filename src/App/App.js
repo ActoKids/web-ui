@@ -8,6 +8,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import UserForm from '../updateEvent/UserForm';
+import AddEventForm from '../AddEvent/AddEventForm'
 
 import {MuiThemeProvider } from 'material-ui/styles';
 
@@ -28,6 +29,7 @@ class App extends Component {
 
                   <MuiThemeProvider>
                     <UserForm />
+                    <AddEventForm/>
                   </MuiThemeProvider>
             </div>
 

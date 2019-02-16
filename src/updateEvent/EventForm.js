@@ -7,7 +7,7 @@ import RaisedButton from "material-ui/RaisedButton";
 import getMuiTheme from "material-ui/styles/getMuiTheme";
 import { red100 } from "material-ui/styles/colors";
 import Select from "@material-ui/core/Select";
-import { Slider } from 'material-ui-slider';
+
 
 
 
@@ -198,7 +198,7 @@ class EventForm extends Component {
           
           </RaisedButton><br></br><br></br>
           <InputLabel htmlFor="age-native-simple">Age Range</InputLabel><br></br>
-          <Slider style={styles.slider} defaultValue={0}></Slider>
+         
 
           <form>
           <InputLabel htmlFor="age-native-simple">Disability Type (Select all that apply)</InputLabel><br></br><br></br>

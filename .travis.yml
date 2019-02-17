@@ -5,6 +5,8 @@ install: true
 script: skip
 deploy:
   provider: s3
-bucket: "acktokids1"
-skip_cleanup: true
-region: us-east-2
+  bucket: "ak-ui-1box-s3"
+  region: us-east-2
+  on:
+    branch:
+      - dev

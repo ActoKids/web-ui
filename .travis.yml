@@ -1,6 +1,13 @@
 language: node_js
 node_js:
   - node
+- "8.10"
+install: true
+script: skip
 deploy:
   provider: s3
-  bucket: "acktokids1"
+  bucket: "ak-ui-dev-s3"
+  region: us-east-2
+  on:
+    branch:
+      - dev

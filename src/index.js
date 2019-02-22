@@ -8,8 +8,8 @@ import * as serviceWorker from './serviceWorker';
 
 
 //Fake backend
-import { configureFakeBackend } from './helpers/fake-backend';
- configureFakeBackend();
+// import { configureFakeBackend } from './helpers/fake-backend';
+//  configureFakeBackend();
  
 
 

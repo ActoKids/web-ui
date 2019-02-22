@@ -1,43 +1,39 @@
 import React, { Component } from 'react';
-
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { PrivateRoute } from '../components';
-import HomePage  from '../HomePage/HomePage';
+import {MuiThemeProvider } from 'material-ui/styles';
+
 import LoginPage from '../LoginPage/LoginPage';
+import HomePage  from '../HomePage/HomePage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
 import UserForm from '../updateEvent/UserForm';
-import AddEventForm from '../AddEvent/AddEventForm'
+import AddEventForm from '../AddEvent/AddEventForm';
 
-import {MuiThemeProvider } from 'material-ui/styles';
+import getEvents from '../components/getEvents';
 
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-          <Router>
-            <div>
-              <header className="App-header">
+          <BrowserRouter>
+            <div className="App">
 
-              <PrivateRoute exact path="/" component={HomePage} />
-              <Route path="/login" component={LoginPage} />
-              <Route path="/register" component={RegisterPage} />
-              </header>
-
-                  <MuiThemeProvider>
-                    <UserForm />
-                    <AddEventForm/>
-                  </MuiThemeProvider>
-            </div>
-
-          </Router>
-
-      </div>
-
-      
+              <switch>
+                  <header className="App-header">
+                    <Route path="/login" component={LoginPage} />
+                  </header>
+                  
+                      <PrivateRoute exact path="/" component={HomePage} />
+                      <Route path="/register" component={RegisterPage} />
+                      <Route path="/userform" component={UserForm} />
+                      <Route path="/addeventform" component={AddEventForm} />
+                      <Route path="/getevents" component={getEvents}/>
+                      
+                  </switch>
+              </div>
+          </BrowserRouter>
     );
   }
 }

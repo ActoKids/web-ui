@@ -61,6 +61,7 @@ export default class LoginPage extends Component{
     render(){
         const { username, password, submitted, loading, error} = this.state;
         return (
+            
             <div className="contaienr login-container">
 
                 <div className="alert alert-info">
@@ -93,19 +94,17 @@ export default class LoginPage extends Component{
                         <button class="btn btn-lg btn-block signin-button" disabled={loading}>Login</button>
                         {loading}
                     </div>
+                    <a href="/register" className="btn btn-lg btn-block register-button">Register</a>
+
 
                 {error &&
                         <div className={'alert alert-danger'}>{error}</div>
                     }
-
-                
                 </form>
 
-            
-                <a href="/register" className="btn btn-lg btn-block register-button">Register</a>
 
                 <p class="mt-5 mb-3 text-muted"><small>Copyright &copy; 2019 Actokids</small></p>
-            </div>
+            </div>  
         );
     }
 }

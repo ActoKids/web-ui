@@ -12,6 +12,7 @@ const muiTheme = getMuiTheme({
     accent1Color: red100
   }
 });
+
 class ReviewPage extends Component {
   //change the color of theme
   continue = e => {
@@ -46,6 +47,9 @@ class ReviewPage extends Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <React.Fragment>
           <AppBar title="ActoKids" />
+
+               
+
           <h2>Please confirm the information below</h2>
           <List>
             <ListItem primaryText="Event Name:" secondaryText={event_name} />

@@ -24,26 +24,51 @@ class SignUp extends Component {
     render() {
         return (
             <div className="container">
-                <h5 className="grey-text text-darken-3">Sign Up</h5>
+               
                 <form onSubmit={this.handleSubmit} className="white">
-                    <div className="input-field">
+                <h5 className="grey-text text-darken-3">Sign Up</h5>
+
+                <div className="input-field">
+                        <label htmlFor="firstName">First Name</label>
+                        <input type="text" id="firstName" onChange={this.handleChange} required/>
+                </div>
+                <div className="input-field">
+                        <label htmlFor="lastName">Last Name</label>
+                        <input type="text" id="lastName" onChange={this.handleChange} required/>
+                </div>
+
+                <div className="input-field">
+                        <label htmlFor="organization">Organization</label>
+                        <input type="text" id="organization" onChange={this.handleChange} required/>
+                </div>
+
+
+                
+
+                <div className="input-field">
+                        <label htmlFor="email">Location</label>
+                        <input type="text" id="location" onChange={this.handleChange} required/>
+                </div>
+
+
+                <div className="input-field">
                         <label htmlFor="email">Email</label>
-                        <input type="email" id="email" onChange={this.handleChange} />
-                    </div>
+                        <input type="email" id="email" onChange={this.handleChange} required/>
+                </div>
+
+
                     <div className="input-field">
                         <label htmlFor="password">Password</label>
-                        <input type="password" id="password" onChange={this.handleChange} />
+                        <input type="password" id="password" onChange={this.handleChange} required/>
                     </div>
+                    
                     <div className="input-field">
-                        <label htmlFor="firstName">First Name</label>
-                        <input type="text" id="firstName" onChange={this.handleChange} />
+                        <label htmlFor="password">Confirm Password</label>
+                        <input type="password" id="confirmPassword" onChange={this.handleChange} required/>
                     </div>
+
                     <div className="input-field">
-                        <label htmlFor="lastName">Last Name</label>
-                        <input type="text" id="lastName" onChange={this.handleChange} />
-                    </div>
-                    <div className="input-field">
-                        <button className="btn pink lighten-1">Login</button>
+                        <button className="btn pink lighten-1">Sign Up</button>
                     </div>
                 </form>
             </div>

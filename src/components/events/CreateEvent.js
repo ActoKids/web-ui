@@ -39,8 +39,65 @@ class CreateEvent extends Component {
     // on createEvent and runs eventActions.js functions
     this.props.createEvent(this.state);
   };
+//post events to JSON server
+  postForm(data) {
+    fetch("http://localhost:3000/values", {
+      method: "POST", // or 'PUT'
 
+      body: JSON.stringify(data), // data can be `string` or {object}!
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(response => console.log("Success:", JSON.stringify(response)))
+      .catch(error => console.error("Error:", error));
+    //https://api.2edusite.com/v2/events
+    //"http://localhost:3000/values"
+  }
   render() {
+    const {
+      title,
+      activity_type,
+      description,
+      org_name,
+      location_name,
+      location_address,
+      contact_name,
+      contact_phone,
+      contact_email,
+      start_date_time,
+      end_date_time,
+      frequency,
+      cost,
+      picture_url,
+      min_age,
+      max_age,
+      disability_types,
+      status,
+      approver
+    } = this.state;
+    const values = {
+      title,
+      activity_type,
+      description,
+      org_name,
+      location_name,
+      location_address,
+      contact_name,
+      contact_phone,
+      contact_email,
+      start_date_time,
+      end_date_time,
+      frequency,
+      cost,
+      picture_url,
+      min_age,
+      max_age,
+      disability_types,
+      status,
+      approver
+    };
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit} className="white">
@@ -491,11 +548,16 @@ class CreateEvent extends Component {
               </div>
             </div>
           </div>
-          <div className="input">
-            <button className="btn red lighten-1 z-depth-0">
-              Create Event
-            </button>
-          </div>
+
+          <button
+            class="btn red lighten-1 z-depth-0"
+            type="submit"
+            name="action"
+            onClick={this.postForm(values)}
+          >
+            Submit
+            <i class="material-icons right">send</i>
+          </button>
         </form>
       </div>
     );

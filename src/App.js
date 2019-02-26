@@ -6,6 +6,8 @@ import EventDetails from './components/events/EventDetails'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 import CreateEvent from './components/events/CreateEvent'
+import UpdateEvent from './components/events/UpdateEvent'
+
 
 
 class App extends Component {
@@ -20,6 +22,7 @@ class App extends Component {
             <Route path='/signin' component={ SignIn } />
             <Route path='/signup' component={ SignUp } />
             <Route path='/create' component={ CreateEvent } />
+            <Route path='/update' component={ UpdateEvent } />
           </Switch>
         </div>
       </BrowserRouter>

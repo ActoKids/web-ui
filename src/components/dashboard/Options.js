@@ -12,6 +12,9 @@ const Options = () => {
             <a href="/" className="option-btn btn-floating btn-small waves-effect waves-light green">
                 <i className="large material-icons">done</i>
             </a>
+
+            <a href="/get" className="waves-effect waves-light btn-small">Get Data</a>
+
         </div>
     )
 }

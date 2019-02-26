@@ -8,6 +8,8 @@ import SignUp from './components/auth/SignUp'
 import CreateEvent from './components/events/CreateEvent'
 import UpdateEvent from './components/events/UpdateEvent'
 
+import GetEvent from './components/events/GetEvent';
+
 
 
 class App extends Component {
@@ -23,6 +25,9 @@ class App extends Component {
             <Route path='/signup' component={ SignUp } />
             <Route path='/create' component={ CreateEvent } />
             <Route path='/update' component={ UpdateEvent } />
+            <Route path = '/get' component={GetEvent} />
+
+
           </Switch>
         </div>
       </BrowserRouter>

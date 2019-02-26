@@ -19,7 +19,7 @@ class Dashboard extends Component {
                         <EventList events={events} />
                     </div>
                 </div>
-            </div>
+            </div> 
         )
     }
 }

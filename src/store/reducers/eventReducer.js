@@ -248,7 +248,7 @@ const eventReducer = (state = initState, action) => {
     switch (action.type) {
         case 'CREATE_EVENT':
             console.log('created project', action.project)
-    }
+    } 
     return state
 }
 

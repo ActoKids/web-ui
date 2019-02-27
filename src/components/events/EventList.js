@@ -24,6 +24,7 @@ const EventList = ({events}) => {
 
 // maps the state from redux store to props
 const mapStateToProps = (state) => {
+    console.log(state);
     return {
         // redux state, event from event property of state, events from initState
         events: state.event.events

@@ -34,7 +34,7 @@ export default class getDetails extends Component {
             <div className="container">
                 <React.Fragment>
                     <h3>Event Data From API</h3>
-                    <h5>Random event</h5>
+                    
                     {error ? <p>{error.message}</p> : null}
                     {!isLoading ? (
                         events.map(event => {
@@ -45,11 +45,13 @@ export default class getDetails extends Component {
                             const { title, description, min_age } = event;
                             if (eventID == id) {
                                 return(
-                                    <div key={id}>
-                                        <p>ID = {event.id}</p>
-                                        <p>Title: {title}</p>
-                                        <p>Description: {description}</p>
-                                        <p>Minimum Age: {min_age}</p>
+                                    <div className="card" key={id}>
+                                        <div className="card-content">
+                                            <div className="card-title">{title}</div>
+                                            <p>ID: {event.id}</p>
+                                            <p>Description: {description}</p>
+                                            <p>Minimum Age: {min_age}</p>
+                                        </div>
                                         <hr />   
                                     </div>
                                 )

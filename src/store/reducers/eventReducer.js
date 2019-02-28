@@ -101,7 +101,7 @@ const initState = {
             {"id":99,"title":"mauris viverra diam vitae","activity_type":"id","description":"iterate front-end e-business","org_name":"Rebel Distributors Corp","location_name":"Claremont Lincoln University","location_address":"8502 Autumn Leaf Crossing","contact_name":"Faustina","contact_phone":"306-386-3249","contact_email":"fcuffley2q@cornell.edu","start_date_time":"6/30/2018","frequency":"Never","cost":"$0.78","min_age":3,"max_age":13,"disability_types":"Cross-group","status":false},
             {"id":100,"title":"in felis eu sapien","activity_type":"proin","description":"brand compelling schemas","org_name":"Physicians Total Care, Inc.","location_name":"Islamic Azad University, Kazeron","location_address":"804 Harper Drive","contact_name":"Dukey","contact_phone":"241-829-2191","contact_email":"dmildner2r@wufoo.com","start_date_time":"12/20/2018","frequency":"Often","cost":"$6.46","min_age":12,"max_age":19,"disability_types":"data-warehouse","status":false}
         ]
-}
+} 
 
 
 // const initState ={

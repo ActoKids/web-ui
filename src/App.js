@@ -7,6 +7,7 @@ import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 import CreateEvent from './components/events/CreateEvent'
 import UpdateEvent from './components/events/UpdateEvent'
+import getDetails from './components/events/getDetails'
 
 import GetEvent from './components/events/GetEvent';
 
@@ -20,7 +21,7 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact path='/' component={ Dashboard } />
-            <Route path='/event/:id' component={ EventDetails } />
+            <Route path='/event/:id' component={ getDetails } />
             <Route path='/signin' component={ SignIn } />
             <Route path='/signup' component={ SignUp } />
             <Route path='/create' component={ CreateEvent } />

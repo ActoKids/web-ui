@@ -9,8 +9,6 @@ import CreateEvent from './components/events/CreateEvent'
 import UpdateEvent from './components/events/UpdateEvent'
 import GetEvent from './components/events/GetEvent';
 
-
-
 class App extends Component {
   render() {
     return (

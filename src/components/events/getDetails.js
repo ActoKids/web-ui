@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+console.log(process.env.REACT_APP_API_KEY);
+
 export default class getDetails extends Component {
     state = {
         isLoading: true,
@@ -27,9 +29,9 @@ export default class getDetails extends Component {
     
 
     render() {
-        console.log(this.props);
+        //console.log(this.props);
         const { isLoading, events, error } = this.state;
-        console.log(this.state);
+        //console.log(this.state);
         return (
             <div className="container">
                 <React.Fragment>
@@ -40,8 +42,8 @@ export default class getDetails extends Component {
                         events.map(event => {
                             const id = this.props.match.params.id;
                             const eventID = event.id;
-                            console.log(eventID);
-                            console.log(id);
+                            //console.log(eventID);
+                            //console.log(id);
                             const { title, description, min_age } = event;
                             if (eventID == id) {
                                 return(

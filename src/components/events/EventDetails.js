@@ -1,48 +1,69 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { compose } from 'redux'
+import React, { Component } from 'react'
 
+const config = {
+    apiKey: '${process.env.REACT_APP_API_KEY}'
+};
 
-// this seems to be loading every single event right now. Not good
-const EventDetails = (props) => {
-    console.log('details', props);
-    const { event } = props;
-    //const id = props.match.params.id;
-    if (event) {
-        return (
-            <div className="container section event-details">
-                <div className="card">
-                    <div className="card-content">
-                        <span className="card-title">{ event.title } = {event.id }</span>
-                        <p>scooby doo</p>
-                    </div>
-                    <div className="card-action grey lighten-4 grey-text">
-                        <div>Posted By Nerd</div>
-                        <div>300000</div>
-                    </div>
-                </div>
-            </div>
+export default class EventDetails extends Component {
+    state = {
+        isLoading: true,
+        events: [],
+        error: null
+    }
+
+    componentDidMount() {
+        // where to fetch the data
+        fetch('https://my.api.mockaroo.com/events.json?key=ab42ca00')
+        // get API response and recieve JSON data
+        .then(response => response.json())
+        // update the state of the post
+        .then(data => 
+            this.setState({
+                events: data,
+                isLoading: false,
+            })
         )
-    } else {
-        return (
-            <div className="container center">
-                <p>Loading Event...</p>
-            </div>
-        )
-    }     
-}
-
-// I see the object where state is logged, the object contains the event
-// array with the events inside, with all of the data I want. For some
-// reason I still cannot access this data, which is what I'm working on.
-const mapStateToProps = (state, ownProps) => {
-    console.log(state);
-    const id = ownProps.match.params.id;
-    const events = '../../json/MOCK_DATA.json';
-    const event = events ? events[id] : null
-    return {
-        event: event,
+        // catching errors while updating
+        .catch(error => this.setState({ 
+            error, isLoading: false 
+        }));
     }
     
+
+    render() {
+        //console.log(this.props);
+        const { isLoading, events, error } = this.state;
+        //console.log(this.state);
+        return (
+            <div className="container">
+                <React.Fragment>
+                    <h3>Event Data From API</h3>
+                    
+                    {error ? <p>{error.message}</p> : null}
+                    {!isLoading ? (
+                        events.map(event => {
+                            const id = this.props.match.params.id;
+                            const eventID = event.id;
+                            //console.log(eventID);
+                            //console.log(id);
+                            const { title, description, min_age } = event;
+                            if (eventID == id) {
+                                return(
+                                    <div className="card" key={id}>
+                                        <div className="card-content">
+                                            <div className="card-title">{title}</div>
+                                            <p>ID: {event.id}</p>
+                                            <p>Description: {description}</p>
+                                            <p>Minimum Age: {min_age}</p>
+                                        </div>
+                                        <hr />   
+                                    </div>
+                                )
+                            } 
+                        })
+                    ) : (<h3>Loading...</h3>)}
+            </React.Fragment>
+        </div>
+        );
+    }
 }
-export default compose(connect(mapStateToProps))(EventDetails)

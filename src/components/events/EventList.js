@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 
+
 // Filled with EventSummary.js items
 const EventList = ({events}) => {
     return (
@@ -13,9 +14,9 @@ const EventList = ({events}) => {
                 
                 return (
                     /* passing the event down as a prop into EventDetails */
-                    /* <Link to={'/event/' + event.id}> */
+                    <Link to={'/event/' + event.id}>
                         <EventSummary event={event} key={event.id} />
-                    /* </Link> */
+                    </Link>
                 )
             }) }
         </div>
@@ -24,6 +25,7 @@ const EventList = ({events}) => {
 
 // maps the state from redux store to props
 const mapStateToProps = (state) => {
+    console.log(state);
     return {
         // redux state, event from event property of state, events from initState
         events: state.event.events

@@ -1,25 +1,35 @@
 {
-  "values": {
-            "id": "1",
-            "user_name": "phu dinh",
-            "title": "Sport",
-            "activity_type": "Sport",		
-            "description": "hello",
-            "org_name": "zphu",
-            "location_name": "Washington",
-            "location_address": "6473 holly",
-            "contact_name": "phu dinh",
-            "contact_phone": "394-343-3943",
-            "contact_email": "dinhxuan_4393@yahoo.com",
-            "start_date_time": "",
-            "end_date_time": "",
-            "frequency": "",
-            "cost": "",
-            "picture_url": "",
-            "min_age": "10",
-            "max_age": "9", 
-            "disability_types": "Adaptive Equipment",
-            "approver": ""
-           
-           }
-          }
+
+	"events": [
+	  {
+	   "id":1,
+	   "title":"encoding",
+	   "start_date_time":"5/17/2018",
+	   "status":true
+	  },
+	  {
+	   "id":2,
+	   "title":"attitude",
+	   "start_date_time":"12/10/2018",
+	   "status":false
+	  },	  
+	  {
+		"id":3,
+		"title":"Managed",
+		"start_date_time":"3/30/2018",
+		"status":false
+	  },
+	  {
+		"id":4,
+		"title":"Up-sized",
+		"start_date_time":"6/26/2018",
+		"status":false
+	  },
+	  {
+		"id":5,
+		"title":"task-force",
+		"start_date_time":"1/5/2019",
+		"status":false
+	  }
+	]
+}

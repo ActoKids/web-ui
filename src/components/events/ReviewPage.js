@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+
 class ReviewPage extends Component {
   //change the color of theme
   continue = e => {
@@ -7,23 +7,15 @@ class ReviewPage extends Component {
     // PROCESS FORM //
     this.props.nextStep();
     let data = this.props.values;
-    data.cost = parseInt(data.cost);
-    data.min_age = parseInt(data.min_age);
-    data.max_age = parseInt(data.max_age);
-    data.disability_types = '["' + data.disability_types + '"]';
-    data.disability_types = JSON.parse(data.disability_types);
-    //axios
-    //.post("https://api-alexc.2edusite.com/v1/events", { data })
-    //.then(res => {
-    // console.log(res);
-    //console.log(res.data);
-    //});
+    data.cost = parseInt(data.cost); // remove the quotes from the cost value
+    data.min_age = parseInt(data.min_age); // remove the quotes from the min_age
+    data.max_age = parseInt(data.max_age); // remove the quotes from the max_age
+    data.disability_types = '["' + data.disability_types + '"]'; 
+    data.disability_types = JSON.parse(data.disability_types); // remove the quotes 
+    
 
     fetch("https://api-alexc.2edusite.com/v1/events", {
-      method: "POST", // *GET, POST, PUT, DELETE, etc.
-
-      // cache: "default", // *default, no-cache, reload, force-cache, only-if-cached
-      //credentials: "same-origin", // include, *same-origin, omit
+      method: "POST", 
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json"

@@ -1,10 +1,42 @@
 import React, { Component } from "react";
+import axios from "axios";
 class ReviewPage extends Component {
   //change the color of theme
   continue = e => {
     e.preventDefault();
     // PROCESS FORM //
     this.props.nextStep();
+    let data = this.props.values;
+    data.cost = parseInt(data.cost);
+    data.min_age = parseInt(data.min_age);
+    data.max_age = parseInt(data.max_age);
+    data.disability_types = '["' + data.disability_types + '"]';
+    data.disability_types = JSON.parse(data.disability_types);
+    //axios
+    //.post("https://api-alexc.2edusite.com/v1/events", { data })
+    //.then(res => {
+    // console.log(res);
+    //console.log(res.data);
+    //});
+
+    fetch("https://api-alexc.2edusite.com/v1/events", {
+      method: "POST", // *GET, POST, PUT, DELETE, etc.
+
+      // cache: "default", // *default, no-cache, reload, force-cache, only-if-cached
+      //credentials: "same-origin", // include, *same-origin, omit
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(myJson => {
+        console.log(myJson);
+      })
+      .catch(err => console.log(err));
+
+    //https://api-alexc.2edusite.com/v1/events
+    //"http://localhost:3000/values"
   };
 
   back = e => {
@@ -14,7 +46,6 @@ class ReviewPage extends Component {
   render() {
     const {
       values: {
-        event_id,
         user_name,
         event_name,
         event_link,
@@ -34,9 +65,8 @@ class ReviewPage extends Component {
         min_age,
         max_age,
         disability_types,
-        status,
-        approver,
-        created_timestamp
+        event_status,
+        approver
       }
     } = this.props;
 

@@ -5,8 +5,8 @@ import Success from "./Success";
 export class UserForm extends Component {
   state = {
     step: 1,
-    event_id: "",
-    user_name: "",
+
+    user_name: "Shao",
     event_name: "",
     event_link: "",
     activity_type: "",
@@ -25,9 +25,8 @@ export class UserForm extends Component {
     min_age: 0,
     max_age: 0,
     disability_types: [""],
-    status: "",
-    approver: "",
-    created_timestamp: ""
+    event_status: "Pending",
+    approver: "none"
   };
 
   // proceed to next step
@@ -51,10 +50,13 @@ export class UserForm extends Component {
     this.setState({ [input]: e.target.value });
   };
 
+  handleDate = input => e => {
+    this.setState({ [input]: e.target.value.concat(":00.000Z") });
+  };
+
   render() {
     const { step } = this.state;
     const {
-      event_id,
       user_name,
       event_name,
       event_link,
@@ -74,12 +76,10 @@ export class UserForm extends Component {
       min_age,
       max_age,
       disability_types,
-      status,
-      approver,
-      created_timestamp
+      event_status,
+      approver
     } = this.state;
     const values = {
-      event_id,
       user_name,
       event_name,
       event_link,
@@ -99,9 +99,8 @@ export class UserForm extends Component {
       min_age,
       max_age,
       disability_types,
-      status,
-      approver,
-      created_timestamp
+      event_status,
+      approver
     };
     switch (step) {
       case 1:
@@ -109,6 +108,7 @@ export class UserForm extends Component {
           <CreateEvent
             nextStep={this.nextStep}
             handleChange={this.handleChange}
+            handleDate={this.handleDate}
             values={values}
           />
         );

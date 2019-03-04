@@ -9,7 +9,7 @@ class CreateEvent extends Component {
   };
 
   render() {
-    const { values, handleChange } = this.props;
+    const { values, handleChange, handleDate } = this.props;
 
     return (
       <div className="container">
@@ -21,7 +21,7 @@ class CreateEvent extends Component {
               type="text"
               defaultValue={values.event_name}
               onChange={handleChange("event_name")}
-              required="required"
+              required
             />
           </div>
           <br />
@@ -192,7 +192,7 @@ class CreateEvent extends Component {
               class="datetimepicker"
               type="datetime-local"
               defaultValue={values.start_date_time}
-              onChange={handleChange("start_date_time")}
+              onChange={handleDate("start_date_time")}
               required="required"
             />
           </div>
@@ -203,7 +203,7 @@ class CreateEvent extends Component {
               class="datetimepicker"
               type="datetime-local"
               defaultValue={values.end_date_time}
-              onChange={handleChange("end_date_time")}
+              onChange={handleDate("end_date_time")}
             />
           </div>
 
@@ -220,25 +220,13 @@ class CreateEvent extends Component {
                     class="with-gap"
                     name="group3"
                     type="radio"
-                    value="One-time"
+                    value="Once"
                     onChange={handleChange("frequency")}
                   />
-                  <span>One-time</span>
+                  <span>Once</span>
                 </label>
               </div>
 
-              <div class="col s2">
-                <label>
-                  <input
-                    class="with-gap"
-                    name="group3"
-                    type="radio"
-                    value="Reoccuring"
-                    onChange={handleChange("frequency")}
-                  />
-                  <span>Reoccuring</span>
-                </label>
-              </div>
               <div class="col s2">
                 <label>
                   <input
@@ -275,18 +263,6 @@ class CreateEvent extends Component {
                   <span>Monthly</span>
                 </label>
               </div>
-              <div class="col s2">
-                <label>
-                  <input
-                    class="with-gap"
-                    name="group3"
-                    type="radio"
-                    value="Annually"
-                    onChange={handleChange("frequency")}
-                  />
-                  <span>Annually</span>
-                </label>
-              </div>
             </div>
           </div>
 
@@ -296,7 +272,7 @@ class CreateEvent extends Component {
               type="text"
               defaultValue={values.cost}
               onChange={handleChange("cost")}
-              required="required"
+              required
             />
           </div>
           <div class="row">
@@ -375,8 +351,8 @@ class CreateEvent extends Component {
           <div className="input-field">
             <div
               className="input-field"
-              defaultValue={values.disability_types}
-              onChange={handleChange("disability_types")}
+              //defaultValue={values.disability_types}
+              //onChange={handleChange("disability_types")}
             >
               <span class="grey-text">Disability Types</span>
               <div class="row">
@@ -488,7 +464,11 @@ class CreateEvent extends Component {
                   />
                 </div>
                 <div class="file-path-wrapper">
-                  <input class="file-path validate" type="text" />
+                  <input
+                    class="file-path validate"
+                    type="text"
+                    onChange={handleChange("picture_url")}
+                  />
                 </div>
               </div>
             </div>

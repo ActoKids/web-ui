@@ -9,7 +9,7 @@ class CreateEvent extends Component {
   };
 
   render() {
-    const { values, handleChange, handleDate } = this.props;
+    const { values, handleChange, handleDate, handleArray } = this.props;
 
     return (
       <div className="container">
@@ -363,7 +363,7 @@ class CreateEvent extends Component {
                       name="group2"
                       type="checkbox"
                       value="Adaptive Equipment"
-                      onChange={handleChange("disability_types")}
+                      onChange={handleArray("disability_types")}
                     />
                     <span>Adaptive Equipment</span>
                   </label>
@@ -376,7 +376,7 @@ class CreateEvent extends Component {
                       name="group2"
                       type="checkbox"
                       value="Cognitive"
-                      onChange={handleChange("disability_types")}
+                      onChange={handleArray("disability_types")}
                     />
                     <span>Cognitive</span>
                   </label>
@@ -388,7 +388,7 @@ class CreateEvent extends Component {
                       name="group2"
                       type="checkbox"
                       value="Hearing"
-                      onChange={handleChange("disability_types")}
+                      onChange={handleArray("disability_types")}
                     />
                     <span>Hearing</span>
                   </label>
@@ -400,7 +400,7 @@ class CreateEvent extends Component {
                       name="group2"
                       type="checkbox"
                       value="Mobility"
-                      onChange={handleChange("disability_types")}
+                      onChange={handleArray("disability_types")}
                     />
                     <span>Mobility</span>
                   </label>
@@ -412,7 +412,7 @@ class CreateEvent extends Component {
                       name="group2"
                       type="checkbox"
                       value="Sensorye"
-                      onChange={handleChange("disability_types")}
+                      onChange={handleArray("disability_types")}
                     />
                     <span>Sensory</span>
                   </label>
@@ -424,7 +424,7 @@ class CreateEvent extends Component {
                       name="group2"
                       type="checkbox"
                       value="Targeted Available"
-                      onChange={handleChange("disability_types")}
+                      onChange={handleArray("disability_types")}
                     />
                     <span>Targeted Available</span>
                   </label>
@@ -436,7 +436,7 @@ class CreateEvent extends Component {
                       name="group2"
                       type="checkbox"
                       value="Wheelchair"
-                      onChange={handleChange("disability_types")}
+                      onChange={handleArray("disability_types")}
                     />
                     <span>Wheelchair</span>
                   </label>
@@ -448,7 +448,7 @@ class CreateEvent extends Component {
                       name="group2"
                       type="checkbox"
                       value="Vision"
-                      onChange={handleChange("disability_types")}
+                      onChange={handleArray("disability_types")}
                     />
                     <span>Vision</span>
                   </label>

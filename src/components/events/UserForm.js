@@ -53,7 +53,10 @@ export class UserForm extends Component {
   handleDate = input => e => {
     this.setState({ [input]: e.target.value.concat(":00.000Z") });
   };
-
+  handleArray = input => e => {
+    var arr = this.state.disability_types.concat('"' + e.target.value + '"');
+    this.setState({ [input]: arr });
+  };
   render() {
     const { step } = this.state;
     const {
@@ -109,6 +112,7 @@ export class UserForm extends Component {
             nextStep={this.nextStep}
             handleChange={this.handleChange}
             handleDate={this.handleDate}
+            handleArray={this.handleArray}
             values={values}
           />
         );

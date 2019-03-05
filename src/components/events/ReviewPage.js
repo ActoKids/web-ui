@@ -10,12 +10,13 @@ class ReviewPage extends Component {
     data.cost = parseInt(data.cost); // remove the quotes from the cost value
     data.min_age = parseInt(data.min_age); // remove the quotes from the min_age
     data.max_age = parseInt(data.max_age); // remove the quotes from the max_age
-    data.disability_types = '["' + data.disability_types + '"]'; 
-    data.disability_types = JSON.parse(data.disability_types); // remove the quotes 
-    
+    data.disability_types = "[" + data.disability_types + "]";
+    data.disability_types =
+      data.disability_types.slice(0, 1) + data.disability_types.slice(2); // remove the first , from the string
+    data.disability_types = JSON.parse(data.disability_types);
 
-    fetch("https://api-alexc.2edusite.com/v1/events", {
-      method: "POST", 
+    fetch("http://localhost:3000/values", {
+      method: "POST",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json"

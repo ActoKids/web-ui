@@ -104,7 +104,7 @@ class CreateEvent extends Component {
           <h5 className="grey-text text-darken-3">Create A New Event</h5>
           <div className="input-field ">
             <label htmlFor="text">Event Title</label>
-            <input type="text" id="title" onChange={this.handleChange} required/>
+            <input type="text" id="title" onChange={this.handleChange} />
           </div>
           <br />
           <div
@@ -123,7 +123,6 @@ class CreateEvent extends Component {
                     value="Camp"
                     id="activity_type"
                     onChange={this.handleChange}
-                    required
                   />
                   <span>Camp</span>
                 </label>

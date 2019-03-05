@@ -15,7 +15,7 @@ class ReviewPage extends Component {
       data.disability_types.slice(0, 1) + data.disability_types.slice(2); // remove the first , from the string
     data.disability_types = JSON.parse(data.disability_types);
 
-    fetch("http://localhost:3000/values", {
+    fetch("https://api-alexc.2edusite.com/v1/events", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

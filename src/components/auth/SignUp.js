@@ -42,9 +42,6 @@ class SignUp extends Component {
                         <input type="text" id="organization" onChange={this.handleChange} required/>
                 </div>
 
-
-                
-
                 <div className="input-field">
                         <label htmlFor="email">Location</label>
                         <input type="text" id="location" onChange={this.handleChange} required/>

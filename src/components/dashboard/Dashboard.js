@@ -3,12 +3,14 @@ import EventList from '../events/EventList'
 import { connect } from 'react-redux'
 import Options from './Options'
 
+
 class Dashboard extends Component {
     render() {
         //console.log(this.props)
         // destructuring events props
-        const {events} = this.props;
 
+        const { events} = this.props;
+        
         return (
             <div className="dashboard container">
                 <div className="row">

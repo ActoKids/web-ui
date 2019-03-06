@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware } from 'redux'
@@ -32,6 +33,7 @@ Amplify.configure({
 		]
 	}
 });
+
 
 // redux store
 // applyMiddleware takes a list of middleware and turns it into a store enhancer

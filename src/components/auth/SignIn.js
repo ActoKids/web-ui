@@ -1,44 +1,45 @@
-import React, { Component } from 'react'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
 
-class SignIn extends Component {
-    state = {
-        email: '',
-        password: ''
-    }
+import App from './App';
+import * as serviceWorker from './serviceWorker';
+import { createStore, applyMiddleware } from 'redux'
+import rootReducer from './store/reducers/rootReducer'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
+import config from './config';
+import Amplify from 'aws-amplify';
 
-    handleChange = (e) => {
-        this.setState({
-            // targets the id and its value
-            [e.target.id]: e.target.value
-        })
-    }
-    
-    handleSubmit = (e) => {
-        e.preventDefault();
-        // shows whatever the user has typed into the form
-        console.log(this.state);
-    }
 
-    render() {
-        return (
-            <div className="container">
-                <form onSubmit={this.handleSubmit} className="white">
-                    <h5 className="grey-text text-darken-3">Sign In</h5>
-                    <div className="input-field">
-                        <label htmlFor="email">Email</label>
-                        <input type="email" id="email" onChange={this.handleChange} required/>
-                    </div>
-                    <div className="input-field">
-                        <label htmlFor="password">Password</label>
-                        <input type="password" id="password" onChange={this.handleChange} required/>
-                    </div>
-                    <div className="input-field">
-                        <button className="btn pink lighten-1">Log in</button>
-                    </div>
-                </form>
-            </div>
-        )
-    }
-}
+//This incorporates Amplify in order to connect to cognito
+Amplify.configure({
+	Auth: {
+		mandatorySignIn: true,
+		region: config.cognito.REGION,
+		userPoolId: config.cognito.USER_POOL_ID,
+		identityPoolId: config.cognito.IDENTITY_POOL_ID,
+		userPoolWebClientId: config.cognito.APP_CLIENT_ID
+	},
+	//Here's the API we connect to. It is currently set to a test api GW
+	API: {
+		endpoints: [
+			{
+				name: 'testApiCall',
+				endpoint: config.apiGateway.URL,
+				region: config.apiGateway.REGION
+			}
+		]
+	}
+});
 
-export default SignIn
+// redux store
+// applyMiddleware takes a list of middleware and turns it into a store enhancer
+// thunk is middleware which enhances the store allowing us to create a function in
+// the action creater, eventActions.js
+const store = createStore(rootReducer, applyMiddleware(thunk));
+
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+
+
+serviceWorker.unregister();

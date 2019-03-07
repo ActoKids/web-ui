@@ -35,10 +35,10 @@ render() {
 
               <form>
                   {/* materializecss Search bar */}
-                  <div class="input-field">
+                  {/* <div class="input-field">
                     <input id="search" type="search" required />
                     <label for="search"><i class="material-icons">search</i></label>
-                  </div>
+                  </div> */}
             </form>
 
             {error ? <p>{error.message}</p> : null}

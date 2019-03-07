@@ -6,7 +6,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import EventDetails from './components/events/EventDetails';
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
-import CreateEvent from './components/events/CreateEvent';
+import UserForm from "./components/events/UserForm";
 import UpdateEvent from './components/events/UpdateEvent';
 import GetEvent from './components/events/GetEvent';
 
@@ -36,7 +36,7 @@ class App extends Component {
 				alert(e);
 			}
 		}
-		//if auth is not possible, return to login page 
+		//if auth is not possible, return to login page
 		this.setState({ isAuthenticating: false });
 	}
 	//set state to authenticated=true
@@ -66,7 +66,7 @@ class App extends Component {
             <AppliedRoute path='/event/:id' component={ EventDetails } props={childProps}/>
             <AppliedRoute path='/dashboard' component={ Dashboard } props={childProps}/>
             <AppliedRoute path='/signup' component={ SignUp } props={childProps}/>
-            <AppliedRoute path='/create' component={ CreateEvent } props={childProps}/>
+            <AppliedRoute path='/create' component={ UserForm } props={childProps}/>
             <AppliedRoute path='/update' component={ UpdateEvent } props={childProps}/>
             <AppliedRoute path = '/get' component={GetEvent} props={childProps}/>
           </Switch>

@@ -33,13 +33,12 @@ render() {
             <React.Fragment>
                 <h3>Fetching Data from remote API</h3>
 
-              <form>
-                  {/* materializecss Search bar */}
+              {/* <form>
                   <div class="input-field">
                     <input id="search" type="search" required />
                     <label for="search"><i class="material-icons">search</i></label>
                   </div>
-            </form>
+            </form> */}
 
             {error ? <p>{error.message}</p> : null}
             {!isLoading ? (

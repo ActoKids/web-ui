@@ -10,7 +10,9 @@ export default class getEvents extends Component{
 
 componentDidMount() {
     // Where we're fetching data from
-    fetch(`https://api-zakb.2edusite.com/v1/events`)
+    fetch(`https://api.2edusite.com/v1/events`)
+    //https://api.2edusite.com/v1/events
+    //https://api-zakb.2edusite.com/v1/events
       // We get the API response and receive data in JSON format...
       .then(response => response.json())
       // ...then we update the users state
@@ -43,16 +45,16 @@ render() {
             {error ? <p>{error.message}</p> : null}
             {!isLoading ? (
                 users.map(user => {
-                const{id, contact_name, description, contact_email, location_address } = user;
+                const{event_id, contact_name, description, contact_email, location_address } = user;
         return (
                    
-          <div key={id}>
+          <div key={event_id}>
 
-              <div class="row">
-              <div class="col s12">
-                <div class="card blue-grey darken-1">
-                  <div class="card-content white-text">
-                    <span class="card-title">{contact_name}</span>
+              <div className ="row">
+              <div className ="col s12">
+                <div className ="card blue-grey darken-1">
+                  <div className="card-content white-text">
+                    <span className="card-title">{contact_name}</span>
                     <p><b>Description:</b> {description}</p>
                     <p><b>Location:</b> {location_address}</p>
                     <p><b>Contact Email:</b> {contact_email}</p>
@@ -70,24 +72,22 @@ render() {
               })
             // If there is a delay in data, let's let the user know it's loading
             ) : (
-                  <div class = "preloader-wrapper big active">
-                    <div class = "spinner-layer spinner-blue-only">
-                        <div class = "circle-clipper left">
-                          <div class = "circle"></div>
+                  <div className = "preloader-wrapper big active">
+                    <div className = "spinner-layer spinner-blue-only">
+                        <div className = "circle-clipper left">
+                          <div className = "circle"></div>
                         </div>
                         
-                        <div class = "gap-patch">
-                          <div class = "circle"></div>
+                        <div className = "gap-patch">
+                          <div className = "circle"></div>
                         </div>
                         
-                        <div class = "circle-clipper right">
-                          <div class = "circle"></div>
+                        <div className = "circle-clipper right">
+                          <div className = "circle"></div>
                         </div>
 
                       </div>
                     </div>
-
-
               )}
             </React.Fragment>
       </div>

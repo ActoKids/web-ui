@@ -66,7 +66,7 @@ class App extends Component {
           <Switch>
             <AppliedRoute exact path='/' component={ SignIn } props={childProps} />
             <AppliedRoute path='/event/:id' component={ EventDetails } props={childProps}/>
-            <AppliedRoute path='/events' component={ events } props={childProps}/>
+            <AppliedRoute path='/dashboard' component={ Dashboard } props={childProps}/>
             <AppliedRoute path='/signup' component={ SignUp } props={childProps}/>
             <AppliedRoute path='/create' component={ UserForm } props={childProps}/>
             <AppliedRoute path='/update' component={ UpdateEvent } props={childProps}/>

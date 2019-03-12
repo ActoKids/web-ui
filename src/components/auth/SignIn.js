@@ -1,9 +1,10 @@
 
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Auth } from 'aws-amplify';
 
 
-export default class SignIn extends React.Component {
+export default class SignIn extends Component {
+
     
     constructor(props) {
 		super(props);
@@ -13,23 +14,38 @@ export default class SignIn extends React.Component {
 			email: 'test@zach.com',
 			password: 'password2'
         };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     
-	}
+    }
+    
+    //vliadate email and password
+    validateForm(){
+        return this.state.email.length > 0 && this.state.password.length > 0;
+    }
+
     //determining the change of the selected target/state
 	handleChange = event => {
+        const {name, value} = event.target;
 		this.setState({
-			[event.target.id]: event.target.value
+            [name]: value
+    
 		});
 	};
 
     //either when you select Login or Enter, perform this action
 	handleSubmit = async event => {
+        event.preventDefault();
         //promise is made that async request will not effect load time
         this.setState({ isLoading: true });
 
+        //assign variables from state
+        const { email, password  } = this.state;
+
         //pull credentials from state and checking if authentication is true
 		try {
-            await Auth.signIn(this.state.email, this.state.password)
+            await Auth.signIn(email, password)
             .then( () => 
             console.log("Inside handleSubmit, before this.props"),
             console.log("props: " + this.props.route),
@@ -45,6 +61,7 @@ export default class SignIn extends React.Component {
 	};
     
     render() {
+
         return (
             <div className="container">
                 <form onSubmit={this.handleSubmit} className="white">
@@ -58,7 +75,7 @@ export default class SignIn extends React.Component {
                         <input type="password" id="password" value={this.state.password} onChange={this.handleChange} required/>
                     </div>
                     <div className="input-field">
-                        <button className="btn pink lighten-1">Log in</button>
+                        <button className="btn pink lighten-1" disabled={!this.validateForm()}>Log in</button>
                     </div>
                 </form>
             </div>

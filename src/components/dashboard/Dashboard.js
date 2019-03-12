@@ -9,7 +9,7 @@ class Dashboard extends Component {
         //console.log(this.props)
         // destructuring events props
 
-        const { events} = this.props;
+        const { events } = this.props;
         
         return (
             <div className="dashboard container">

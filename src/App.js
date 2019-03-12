@@ -10,6 +10,8 @@ import UserForm from "./components/events/UserForm";
 import UpdateEvent from './components/events/UpdateEvent';
 import GetEvent from './components/events/GetEvent';
 
+import NotFound from './components/NotFound';
+
 
 import AppliedRoute from './components/AppliedRoute';
 // import for auth using amplify
@@ -62,13 +64,15 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <Switch>
-            <AppliedRoute exact path='/' component={ SignIn } props={childProps} />
-            <AppliedRoute path='/event/:id' component={ EventDetails } props={childProps}/>
-            <AppliedRoute path='/dashboard' component={ Dashboard } props={childProps}/>
-            <AppliedRoute path='/signup' component={ SignUp } props={childProps}/>
-            <AppliedRoute path='/create' component={ UserForm } props={childProps}/>
-            <AppliedRoute path='/update' component={ UpdateEvent } props={childProps}/>
-            <AppliedRoute path = '/get' component={GetEvent} props={childProps}/>
+							<AppliedRoute exact path='/' component={ SignIn } props={childProps} />
+							<AppliedRoute path='/event/:id' component={ EventDetails } props={childProps}/>
+							<AppliedRoute path='/dashboard' component={ Dashboard } props={childProps}/>
+							<AppliedRoute path='/signup' component={ SignUp } props={childProps}/>
+							<AppliedRoute path='/create' component={ UserForm } props={childProps}/>
+							<AppliedRoute path='/update' component={ UpdateEvent } props={childProps}/>
+							<AppliedRoute path = '/get' component={GetEvent} props={childProps}/>
+							{ /* Finally, catch all unmatched routes */ }
+							<Route component={NotFound} />
           </Switch>
         </div>
       </BrowserRouter>

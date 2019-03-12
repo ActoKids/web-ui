@@ -35,10 +35,12 @@ export default class EventDetails extends Component {
     }
 
     getEvent() {
-        return API.get("events", `/event/${this.props.match.params.id}`);
+        return API.get("events", `/events/${this.props.match.params.id}`);
     }
 
     render() {
-        return <div className="container"></div>
+        return <div className="container">
+            
+        </div>
     }
 }

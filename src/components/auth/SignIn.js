@@ -35,7 +35,7 @@ export default class SignIn extends React.Component {
             console.log("props: " + this.props.route),
 			this.props.userHasAuthenticated(true),
             //now load dashboard to DOM
-            this.props.history.push('/dashboard')
+            this.props.history.push('/events')
             
             //if auth fails or not possible
         )} catch (e) {

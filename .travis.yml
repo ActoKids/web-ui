@@ -13,6 +13,7 @@ deploy:
       branch:
         - dev
         - feature/web-ui-travisci-upd
+    skip_cleanup: true
     local_dir: build
   - provider: s3
     bucket: "ak-ui-prod-s3"
@@ -20,4 +21,5 @@ deploy:
     on:
       branch:
         - prod
+    skip_cleanup: true
     local_dir: build

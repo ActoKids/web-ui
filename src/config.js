@@ -1,7 +1,7 @@
 export default {
 	apiGateway: {
 		REGION: 'us-west-2',
-		URL: 'https://flt5sd48q6.execute-api.us-west-2.amazonaws.com/test'
+		URL: 'https://api.2edusite.com/v1/'
 	},
 	//AWS Congito credentials. Can be found again by selecting: 
 	//	Manage User Pool > (select Pool name) > General Settings > App Clients  

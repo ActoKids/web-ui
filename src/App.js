@@ -62,7 +62,10 @@ class App extends Component {
 			{/* Below we are configuring the login page. You must use AppliedRoute and childProps
 			when connecting to AWS Cognito */}
         <div className="App">
-          <Navbar />
+          <Navbar 
+					isAuth = {this.state.isAuthenticated}
+					
+					/>
           <Switch>
 							<AppliedRoute exact path='/' component={ SignIn } props={childProps} />
 							<AppliedRoute path='/event/:id' component={ EventDetails } props={childProps}/>

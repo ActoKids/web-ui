@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { API } from 'aws-amplify';
 import { Link } from 'react-router-dom'
 import _ from 'lodash'
-import Options from './Options'
+import Options from '../dashboard/Options'
+
 
 // This component now acts as an almost functioning dashboard.
 // Everything is called from the API and is easily customizable.

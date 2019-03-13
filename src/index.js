@@ -25,7 +25,7 @@ Amplify.configure({
 	API: {
 		endpoints: [
 			{
-				name: 'testApiCall',
+				name: 'events',
 				endpoint: config.apiGateway.URL,
 				region: config.apiGateway.REGION
 			}

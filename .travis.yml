@@ -1,8 +1,10 @@
 language: node_js
 node_js:
-  - node
-install: true
-script: skip
+  - "stable"
+install: 
+  - npm install
+script: 
+  - CI=false npm run build
 deploy:
   - provider: s3
     bucket: "ak-ui-dev-s3"
@@ -10,9 +12,13 @@ deploy:
     on:
       branch:
         - dev
+    skip_cleanup: true
+    local_dir: build
   - provider: s3
     bucket: "ak-ui-prod-s3"
     region: us-east-2
     on:
       branch:
         - prod
+    skip_cleanup: true
+    local_dir: build

@@ -1,5 +1,10 @@
 import React from 'react'
+import Options from '../dashboard/Options'
 
+// Directed to this page when clicking on an event in the dashboard
+// This is a stateless UI component, which gets its props from EventSummary.js
+// This is to ensure that only one event is selected, which matches the unique
+// event_id associated with it.
 const EventDetails = (props) => {
     const event = props.location.state.event;
     return (
@@ -25,10 +30,10 @@ const EventDetails = (props) => {
                     <span className="card-title">{event.org_name}</span>
                     <p>Contact Name - {event.contact_name}</p>
                     <p>Contact Phone - {event.contact_phone}</p>
-                    <p>Contact Email - {event.contact_email}</p>
-                    
+                    <p>Contact Email - {event.contact_email}</p>                    
                 </div>
             </div>
+            <Options />
         </div>
     )
 }

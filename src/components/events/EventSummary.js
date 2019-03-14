@@ -1,13 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-// This is to make the eventss modular. 
-// When imported into EventsList.js <EventsSummary /> can be called
-
-// Creates the cards that are seen on the dashboard, data comes from eventsReducer
+// The information that is displayed on each card in the
+// EventList on the Dashboard. Props come from EventList which
+// have been mapped to each individual event, rather than an
+// array of every event
 const EventSummary = ({event}) => {
-    console.log(event)
-    
+    console.log(event) 
     return (
         <Link to={{pathname: '/events/' + event.event_id, state: {event: event}}}>
             <div className="card horizontal hoverable events-summary">

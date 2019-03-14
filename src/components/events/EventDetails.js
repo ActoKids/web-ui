@@ -8,7 +8,7 @@ const EventDetails = (props) => {
             <div className="card">
                 <div className="card-content">
                     <span className="card-title">{event.event_name}</span>
-                    <a href={event.event_link}>Event Link</a>
+                    <a href={event.event_link}>Event Link</a><hr/>
                     <p>{event.description}</p>
                     <p>Activity Type - {event.activity_type}</p>
                     <p>Location - {event.location_name}, {event.location_address}</p>

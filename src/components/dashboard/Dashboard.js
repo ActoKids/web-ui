@@ -41,8 +41,7 @@ class Dashboard extends Component {
             
             <div className="container">
                 <h3>Dashboard</h3>
-                <Options />
-                
+                <Options />               
                 <EventList events={eventInfo} key={eventInfo.event_id} />            
             </div>  
         )

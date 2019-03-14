@@ -8,6 +8,7 @@ const EventDetails = (props) => {
             <div className="card">
                 <div className="card-content">
                     <span className="card-title">{event.event_name}</span>
+                    <a href={event.event_link}>Event Link</a>
                     <p>{event.description}</p>
                     <p>Activity Type - {event.activity_type}</p>
                     <p>Location - {event.location_name}, {event.location_address}</p>
@@ -25,6 +26,7 @@ const EventDetails = (props) => {
                     <p>Contact Name - {event.contact_name}</p>
                     <p>Contact Phone - {event.contact_phone}</p>
                     <p>Contact Email - {event.contact_email}</p>
+                    
                 </div>
             </div>
         </div>

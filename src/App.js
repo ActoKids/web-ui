@@ -9,8 +9,6 @@ import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import UserForm from "./components/events/UserForm";
 import UpdateEvent from './components/events/UpdateEvent';
-import GetEvent from './components/events/GetEvent';
-import events from './components/events/events'
 
 
 import AppliedRoute from './components/AppliedRoute';
@@ -70,7 +68,6 @@ class App extends Component {
             <AppliedRoute path='/signup' component={ SignUp } props={childProps}/>
             <AppliedRoute path='/create' component={ UserForm } props={childProps}/>
             <AppliedRoute path='/update' component={ UpdateEvent } props={childProps}/>
-            <AppliedRoute path = '/get' component={GetEvent} props={childProps}/>
           </Switch>
         </div>
       </BrowserRouter>

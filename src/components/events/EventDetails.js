@@ -39,8 +39,9 @@ export default class EventDetails extends Component {
     }
 
     render() {
-        return <div className="container">
+        return (<div className="container">
             
         </div>
+        )
     }
 }

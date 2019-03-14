@@ -3,8 +3,6 @@ import { Link, NavLink } from 'react-router-dom'
 import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
 
-import { Auth } from 'aws-amplify';
-
 import SignIn from '../auth/SignIn';
 
 import App from '../../App'
@@ -16,7 +14,7 @@ const Navbar = (props) => {
 //console.log(auth);
 // const links = this.state.isAuthenticated ? <SignedInLinks /> : <SignedOutLinks />;
 
-const myAuth= {isAuthenticated: false};
+const myAuth= props.isAuthenticated;
 
 
 // console.log('props: ', App.state.isAuthenticated);
@@ -33,7 +31,7 @@ const myAuth= {isAuthenticated: false};
                 </div>
                 <div className="container right-align">{
                     
-                    myAuth.isAuthenticated ?
+                    true ?
 
                      <ul className="right">
                         <li><NavLink to='/signup'>Sign Up</NavLink></li>

@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Auth } from 'aws-amplify';
 
 
-export default class SignIn extends React.Component {
+export default class SignIn extends Component {
     
     constructor(props) {
 		super(props);

@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 // Creates the cards that are seen on the dashboard, data comes from eventsReducer
 const EventSummary = ({event}) => {
     console.log(event)
-    console.log()
     
     return (
         <Link to={{pathname: '/events/' + event.event_id, state: {event: event}}}>
@@ -22,4 +21,4 @@ const EventSummary = ({event}) => {
     )
 }
 
-export default EventSummary
+export default EventSummary 

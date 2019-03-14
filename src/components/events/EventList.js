@@ -9,9 +9,15 @@ const EventList = ({events}) => {
         <div className="event-list section">
             {events && events.map(event => {
                 return (
-                    
-                        <EventSummary event={event} key={events.event_id}/>
-                    
+                    <div>
+                        {/* <form action="#">
+                            <label>
+                                <input type="checkbox" />
+                                <span></span>
+                            </label>
+                        </form> */}
+                        <EventSummary event={event} key={events.event_id}/>                   
+                    </div>
                 )
             })}         
         </div>

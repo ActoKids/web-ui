@@ -1,47 +1,18 @@
-import React, { Component } from 'react'
-import { API, Storage } from 'aws-amplify'
+import React from 'react'
 
-export default class EventDetails extends Component {
-    constructor(props) {
-        super(props);
-
-        this.file = null;
-
-        this.state = {
-            event: null,
-            content: "",
-            attachmentURL: null
-        };
-    }
-
-    async componentDidMount() {
-        try {
-            let attachmentURL;
-            const event = await this.getEvent();
-            const { content, attachment } = event;
-
-            if (attachment) {
-                attachmentURL = await Storage.vault.get(attachment);
-            }
-
-            this.setState({
-                event,
-                content,
-                attachmentURL
-            });
-        } catch (e) {
-            alert (e);
-        }
-    }
-
-    getEvent() {
-        return API.get("events", `/events/${this.props.match.params.id}`);
-    }
-
-    render() {
-        return (<div className="container">
-            
+const EventDetails = (props) => {
+    const event = props.location.state.event;
+    return (
+        <div className="container section event-details">
+            <div className="card">
+                <div className="card-content">
+                    <span className="card-title">Event Title - {event.event_name}</span>
+                    <p>{event.description}</p>
+                </div>
+            </div>
         </div>
-        )
-    }
+    )
 }
+
+export default EventDetails
+

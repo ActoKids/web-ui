@@ -38,7 +38,6 @@ class Dashboard extends Component {
 
     render() {
 
-        console.log(this.state)
         // creating an array variable to store the state in
         const eventInfo = this.state.events;
         return (

@@ -4,7 +4,6 @@ import SignedInLinks from './SignedInLinks'
 import SignedOutLinks from './SignedOutLinks'
 
 const Navbar = (state) => {
-    console.log(state)
     return (
         <div className="navbar-fixed">
             <nav className="nav-wrapper red darken-1">

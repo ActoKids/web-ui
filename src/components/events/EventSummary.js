@@ -5,8 +5,6 @@ import React from 'react'
 
 // Creates the cards that are seen on the dashboard, data comes from eventsReducer
 const EventSummary = ({event}) => {
-    console.log(event)
-    console.log()
     
     return (
         

@@ -9,9 +9,9 @@ const EventList = ({events}) => {
         <div className="event-list section">
             {events && events.map(event => {
                 return (
-                    <Link to={{pathname: '/events/' + event.event_id, state: {event: event}}}>
+                    
                         <EventSummary event={event} key={events.event_id}/>
-                    </Link>
+                    
                 )
             })}         
         </div>

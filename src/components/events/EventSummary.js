@@ -1,26 +1,21 @@
 import React from 'react'
 
-// This is to make the events modular. 
-// When imported into EventList.js <EventSummary /> can be called
+// This is to make the eventss modular. 
+// When imported into EventsList.js <EventsSummary /> can be called
 
-// Creates the cards that are seen on the dashboard, data comes from eventReducer
+// Creates the cards that are seen on the dashboard, data comes from eventsReducer
 const EventSummary = ({event}) => {
+    console.log(event)
+    console.log()
+    
     return (
-        <div className="card horizontal hoverable event-summary">
-            <div className="valign-wrapper card-content">
-                <label>
-                    <input className="event-checkbox" type="checkbox" />
-                    <span></span>
-                </label>
-            </div>
+        
+        <div className="card horizontal hoverable events-summary">
             <div className="card-content grey-text text-darken-3">
-                <span className="card-title">{event.title} at {event.location_name}</span>
+                <span className="card-title">{event.event_name} at: {event.location_name}</span>
                 <p>Posted By {event.contact_name}</p>
-                <p className="grey-text">{event.start_date_time}</p>
+                <p className="grey-text">Ages: {event.min_age} - {event.max_age}</p>
             </div>
-            {/* <div className="card-image"> 
-                <img src={event.picture_url} alt=""/>
-            </div> */}
         </div>
     )
 }

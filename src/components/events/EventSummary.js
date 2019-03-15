@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 // have been mapped to each individual event, rather than an
 // array of every event
 const EventSummary = ({event}) => {
-    console.log(event) 
+    // console.log(event) 
     return (
         <Link to={{pathname: '/events/' + event.event_id, state: {event: event}}}>
             <div className="card horizontal hoverable events-summary">

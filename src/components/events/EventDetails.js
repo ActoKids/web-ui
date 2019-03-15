@@ -1,5 +1,5 @@
 import React from 'react'
-import Options from '../dashboard/Options'
+import { Link } from 'react-router-dom'
 
 // Directed to this page when clicking on an event in the dashboard
 // This is a stateless UI component, which gets its props from EventSummary.js
@@ -9,7 +9,28 @@ const EventDetails = (props) => {
     const event = props.location.state.event;
     return (
         <div className="container section">
-            <h4>Event Information</h4>
+            
+            {/* header section with links to options */}
+            <h4>
+                Event Information
+                <Link className="right" to={'/'}>
+                    <button className="option-btn btn-floating btn-small waves-effect waves-light green">
+                        <i className="small material-icons">delete</i>
+                    </button>
+                </Link> 
+                <Link className="right" to={{pathname: '/update', state: {event:event}}}>
+                    <button className="option-btn btn-floating btn-small waves-effect waves-light yellow">
+                        <i className="small material-icons">edit</i>
+                    </button>
+                </Link>
+                <Link className="right" to={'/'}>
+                    <button className="option-btn btn-floating btn-small waves-effect waves-light red">
+                        <i className="small material-icons">delete</i>
+                    </button>
+                </Link>
+            </h4>
+
+            {/* event information section */}
             <div className="card">
                 <div className="card-content">
                     <span className="card-title">{event.event_name}</span>
@@ -24,16 +45,17 @@ const EventDetails = (props) => {
                     <p>Disibilities - {event.disability_types}</p>
                 </div>
             </div>
+
+            {/* contact information section */}
             <h4>Contact Information</h4>
             <div className="card">
                 <div className="card-content">
-                    <span className="card-title">{event.org_name}</span>
+                    <span className="card-title">Organization - {event.org_name}</span>
                     <p>Contact Name - {event.contact_name}</p>
                     <p>Contact Phone - {event.contact_phone}</p>
                     <p>Contact Email - {event.contact_email}</p>                    
                 </div>
             </div>
-            <Options />
         </div>
     )
 }

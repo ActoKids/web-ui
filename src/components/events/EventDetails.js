@@ -13,11 +13,6 @@ const EventDetails = (props) => {
             {/* header section with links to options */}
             <h4>
                 Event Information
-                <Link className="right" to={'/'}>
-                    <button className="option-btn btn-floating btn-small waves-effect waves-light green">
-                        <i className="small material-icons">delete</i>
-                    </button>
-                </Link> 
                 <Link className="right" to={{pathname: '/update', state: {event:event}}}>
                     <button className="option-btn btn-floating btn-small waves-effect waves-light yellow">
                         <i className="small material-icons">edit</i>

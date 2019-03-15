@@ -106,7 +106,7 @@ class UpdateEvent extends Component {
       approver
     };
     return (
-      <div className="container">
+      <div className="container update-event">
         <form onSubmit={this.handleSubmit} className="white">
           <h5 className="grey-text text-darken-3">Edit An Event</h5>
           <div className="input-field ">

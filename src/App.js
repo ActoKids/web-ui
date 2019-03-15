@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route, PropsRoute  } from 'react-router-dom';
-
 import Navbar from './components/layout/Navbar';
 import Dashboard from './components/dashboard/Dashboard';
 import EventDetails from './components/events/EventDetails';
-import getDetails from './components/events/getDetails'
 import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import UserForm from "./components/events/UserForm";
 import UpdateEvent from './components/events/UpdateEvent';
-import GetEvent from './components/events/GetEvent';
-import events from './components/events/events'
 
 import NotFound from './components/NotFound';
 
@@ -80,37 +76,34 @@ class App extends Component {
 
                 </div>
                 <div className="container right-align">{
-                    
+
 											this.state.isAuthenticated ?
-										
+
                       <ul className="right">
                         <li><NavLink to='/create'>Create Event</NavLink></li>
                         <li><NavLink to='/' onClick={this.handleLogout}>Sign Out</NavLink></li>
                         <li><NavLink to='/dashboard' className="btn btn-floating pink lighten-1">EN</NavLink></li>
                     </ul>
-										 
+
 
 										 :
-										 
+
 											<ul className="right">
                         <li><NavLink to='/signup'>Sign Up</NavLink></li>
                      </ul>
-										
-                    
+
+
                     }</div>
             </nav>
         </div>
 
           <Switch>
-							<AppliedRoute exact path='/' component={ SignIn } props={childProps} />
-							<AppliedRoute path='/event/:id' component={ EventDetails } props={childProps}/>
-							<AppliedRoute path='/dashboard' component={ Dashboard } props={childProps}/>
-							<AppliedRoute path='/signup' component={ SignUp } props={childProps}/>
-							<AppliedRoute path='/create' component={ UserForm } props={childProps}/>
-							<AppliedRoute path='/update' component={ UpdateEvent } props={childProps}/>
-							<AppliedRoute path = '/get' component={GetEvent} props={childProps}/>
-							{ /* Finally, catch all unmatched routes */ }
-							<Route component={NotFound} />
+            <AppliedRoute exact path='/' component={ SignIn } props={childProps} />
+            <AppliedRoute path='/events/:event_id' component={ EventDetails } props={childProps}/>
+            <AppliedRoute path='/dashboard' component={ Dashboard } props={childProps}/>
+            <AppliedRoute path='/signup' component={ SignUp } props={childProps}/>
+            <AppliedRoute path='/create' component={ UserForm } props={childProps}/>
+            <AppliedRoute path='/update' component={ UpdateEvent } props={childProps}/>
           </Switch>
         </div>
       </BrowserRouter>

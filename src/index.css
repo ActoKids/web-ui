@@ -26,6 +26,10 @@ form {
   max-height: 520px;
 }
 
+.update-event {
+  padding-bottom: 50px;
+}
+
 .option-btn {
   margin-right: 53px;
   margin-bottom: 15px;

@@ -1,35 +1,25 @@
-// import React from 'react'
-// import EventSummary from './EventSummary'
-// import { Link } from 'react-router-dom'
-// import { connect } from 'react-redux'
+import React from 'react'
+import EventSummary from './EventSummary'
 
+// Filled with EventSummary.js items
+// props comes from Dashboard.js but we are only passing
+// an array of {events} objects into this UI component
+const EventList = ({events}) => {
+    //console.log(events)
+    return (
+        <div className="event-list section">
+            {/* checking to see if events exist then mapping them */}
+            {/* Mapping events means that each individual event can be
+                read by EventSummary.js */}
+            {events && events.map(event => {
+                return (
+                    <div>
+                        <EventSummary event={event} key={events.event_id}/>                   
+                    </div>
+                )
+            })}         
+        </div>
+    )
+}
 
-
-// // Filled with EventSummary.js items
-// const EventList = ({events}) => {
-//     return (
-//         <div className="event-list section">
-//             {/* checking to see if an event exists */}
-//             { events && events.map(event => {
-                
-//                 return (
-//                     /* passing the event down as a prop into EventDetails */
-//                     <Link to={'/event/' + event.id}>
-//                         <EventSummary event={event} key={event.id} />
-//                     </Link>
-//                 )
-//             }) }
-//         </div>
-//     )
-// }
-
-// // maps the state from redux store to props
-// const mapStateToProps = (state) => {
-//     console.log(state);
-//     return {
-//         // redux state, event from event property of state, events from initState
-//         events: state.event.events
-//     }
-// }
-
-// export default connect(mapStateToProps)(EventList)
+export default EventList

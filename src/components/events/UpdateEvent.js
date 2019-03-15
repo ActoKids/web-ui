@@ -56,6 +56,13 @@ class UpdateEvent extends Component {
    
   }
   render() {
+    // this variable is passed to us from EventDetails.js
+    // we use it to get the value of the prop we want
+    // example: {event.event_name}.
+    // Because we have access to this.props.location.state.event,
+    // that means we have the uniquie ID of the event.
+    const event = this.props.location.state.event;
+
     const {
       title,
       activity_type,
@@ -99,12 +106,12 @@ class UpdateEvent extends Component {
       approver
     };
     return (
-      <div className="container">
+      <div className="container update-event">
         <form onSubmit={this.handleSubmit} className="white">
           <h5 className="grey-text text-darken-3">Edit An Event</h5>
           <div className="input-field ">
             <label htmlFor="text">Event Title</label>
-            <input disabled={true} type="text" id="title" onChange={this.handleChange} />
+            <input disabled={false} type="text" id="title" placeholder={event.event_name} onChange={this.handleChange} />
           </div>
           <br />
           <div
@@ -201,46 +208,51 @@ class UpdateEvent extends Component {
             <textarea
               id="description"
               className="materialize-textarea"
+              placeholder={event.description}
               onChange={this.handleChange}
             />
           </div>
           <div className="input-field">
             <label htmlFor="text">Name of Organization</label>
-            <input disabled={true} type="text" id="org_name" onChange={this.handleChange} />
+            <input disabled={false} type="text" id="org_name" placeholder={event.org_name} onChange={this.handleChange} />
           </div>
           <div className="input-field">
             <label htmlFor="text">Location</label>
             <input
               type="text"
               id="location_name"
+              placeholder={event.location_name}
               onChange={this.handleChange}
             />
           </div>
           <div className="input-field">
             <label htmlFor="text">Location Address</label>
-            <input disabled={true}
+            <input disabled={false}
               type="text"
               id="location_address"
+              placeholder={event.location_address}
               onChange={this.handleChange}
             />
           </div>
           <div className="input-field">
             <label htmlFor="text">Contact Name</label>
-            <input disabled={true} type="text" id="contact_name" onChange={this.handleChange} />
+            <input disabled={false} type="text" id="contact_name" placeholder={event.contact_name} onChange={this.handleChange} />
           </div>
           <div className="input-field">
             <label htmlFor="text">Contact Phone Number</label>
-            <input disabled={true}
+            <input disabled={false}
               type="text"
               id="contact_phone"
+              placeholder={event.contact_phone}
               onChange={this.handleChange}
             />
           </div>
           <div className="input-field">
             <label htmlFor="text">Contact Email Address</label>
-            <input disabled={true}
+            <input disabled={false}
               type="text"
               id="contact_email"
+              placeholder={event.contact_email}
               onChange={this.handleChange}
             />
           </div>

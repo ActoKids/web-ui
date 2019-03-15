@@ -1,46 +1,59 @@
-import React, { Component } from 'react'
-import { API, Storage } from 'aws-amplify'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-export default class EventDetails extends Component {
-    constructor(props) {
-        super(props);
-
-        this.file = null;
-
-        this.state = {
-            event: null,
-            content: "",
-            attachmentURL: null
-        };
-    }
-
-    async componentDidMount() {
-        try {
-            let attachmentURL;
-            const event = await this.getEvent();
-            const { content, attachment } = event;
-
-            if (attachment) {
-                attachmentURL = await Storage.vault.get(attachment);
-            }
-
-            this.setState({
-                event,
-                content,
-                attachmentURL
-            });
-        } catch (e) {
-            alert (e);
-        }
-    }
-
-    getEvent() {
-        return API.get("events", `/events/${this.props.match.params.id}`);
-    }
-
-    render() {
-        return <div className="container">
+// Directed to this page when clicking on an event in the dashboard
+// This is a stateless UI component, which gets its props from EventSummary.js
+// This is to ensure that only one event is selected, which matches the unique
+// event_id associated with it.
+const EventDetails = (props) => {
+    const event = props.location.state.event;
+    return (
+        <div className="container section">
             
+            {/* header section with links to options */}
+            <h4>
+                Event Information
+                <Link className="right" to={{pathname: '/update', state: {event:event}}}>
+                    <button className="option-btn btn-floating btn-small waves-effect waves-light yellow">
+                        <i className="small material-icons">edit</i>
+                    </button>
+                </Link>
+                <Link className="right" to={'/'}>
+                    <button className="option-btn btn-floating btn-small waves-effect waves-light red">
+                        <i className="small material-icons">delete</i>
+                    </button>
+                </Link>
+            </h4>
+
+            {/* event information section */}
+            <div className="card">
+                <div className="card-content">
+                    <span className="card-title">{event.event_name}</span>
+                    <a href={event.event_link}>Event Link</a><hr/>
+                    <p>{event.description}</p>
+                    <p>Activity Type - {event.activity_type}</p>
+                    <p>Location - {event.location_name}, {event.location_address}</p>
+                    <p>Dates & Times - {event.start_date_time} to {event.end_date_time}</p>
+                    <p>Frequency - {event.frequency}</p>
+                    <p>Ages - {event.min_age} to {event.max_age}</p>
+                    <p>Price - ${event.cost}</p>
+                    <p>Disibilities - {event.disability_types}</p>
+                </div>
+            </div>
+
+            {/* contact information section */}
+            <h4>Contact Information</h4>
+            <div className="card">
+                <div className="card-content">
+                    <span className="card-title">Organization - {event.org_name}</span>
+                    <p>Contact Name - {event.contact_name}</p>
+                    <p>Contact Phone - {event.contact_phone}</p>
+                    <p>Contact Email - {event.contact_email}</p>                    
+                </div>
+            </div>
         </div>
-    }
+    )
 }
+
+export default EventDetails
+

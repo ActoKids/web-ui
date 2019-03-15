@@ -5,7 +5,6 @@ import { Auth } from 'aws-amplify';
 
 export default class SignIn extends Component {
 
-    
     constructor(props) {
 		super(props);
         //set properties of the state
@@ -17,9 +16,9 @@ export default class SignIn extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    
+
     }
-    
+
     //vliadate email and password
     validateForm(){
         return this.state.email.length > 0 && this.state.password.length > 0;
@@ -30,7 +29,7 @@ export default class SignIn extends Component {
         const {name, value} = event.target;
 		this.setState({
             [name]: value
-    
+
 		});
 	};
 
@@ -46,20 +45,20 @@ export default class SignIn extends Component {
         //pull credentials from state and checking if authentication is true
 		try {
             await Auth.signIn(email, password)
-            .then( () => 
+            .then( () =>
             console.log("Inside handleSubmit, before this.props"),
             console.log("props: " + this.props.route),
 			this.props.userHasAuthenticated(true),
             //now load dashboard to DOM
             this.props.history.push('/dashboard')
-            
+
             //if auth fails or not possible
         )} catch (e) {
 			alert(e.message);
 			this.setState({ isLoading: false });
 		}
 	};
-    
+
     render() {
 
         return (
@@ -82,4 +81,3 @@ export default class SignIn extends Component {
         )
     }
 }
-

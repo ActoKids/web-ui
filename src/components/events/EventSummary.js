@@ -1,28 +1,23 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-// This is to make the events modular. 
-// When imported into EventList.js <EventSummary /> can be called
-
-// Creates the cards that are seen on the dashboard, data comes from eventReducer
+// The information that is displayed on each card in the
+// EventList on the Dashboard. Props come from EventList which
+// have been mapped to each individual event, rather than an
+// array of every event
 const EventSummary = ({event}) => {
+    // console.log(event) 
     return (
-        <div className="card horizontal hoverable event-summary">
-            <div className="valign-wrapper card-content">
-                <label>
-                    <input className="event-checkbox" type="checkbox" />
-                    <span></span>
-                </label>
+        <Link to={{pathname: '/events/' + event.event_id, state: {event: event}}}>
+            <div className="card horizontal hoverable events-summary">
+                <div className="card-content grey-text text-darken-3">
+                    <span className="card-title">{event.event_name} at: {event.location_name}</span>
+                    <p>Posted By {event.contact_name}</p>
+                    <p className="grey-text">Ages: {event.min_age} - {event.max_age}</p>
+                </div>
             </div>
-            <div className="card-content grey-text text-darken-3">
-                <span className="card-title">{event.title} at {event.location_name}</span>
-                <p>Posted By {event.contact_name}</p>
-                <p className="grey-text">{event.start_date_time}</p>
-            </div>
-            {/* <div className="card-image"> 
-                <img src={event.picture_url} alt=""/>
-            </div> */}
-        </div>
+        </Link>
     )
 }
 
-export default EventSummary
+export default EventSummary 

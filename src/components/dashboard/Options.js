@@ -9,9 +9,6 @@ const Options = () => {
             <a href="/update" className="option-btn btn-floating btn-small waves-effect waves-light yellow">
                 <i className="large material-icons">edit</i>
             </a>
-            <a href="/" className="option-btn btn-floating btn-small waves-effect waves-light green">
-                <i className="large material-icons">done</i>
-            </a>
         </div>
     )
 }

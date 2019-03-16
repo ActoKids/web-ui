@@ -8,7 +8,7 @@ const Navbar = (state) => {
         <div className="navbar-fixed">
             <nav className="nav-wrapper red darken-1">
                 <div className="container">
-                    <Link to='/' className="brand-logo">ActoKids2</Link>
+                    <Link to='/' className="brand-logo">ActoKids</Link>
                     <SignedInLinks />
                     <SignedOutLinks />
                 </div>

@@ -11,7 +11,7 @@ export default class SignIn extends Component {
 		this.state = {
 			isLoading: false,
 			email: 'test@zach.com',
-			password: 'password3'
+			password: 'password2'
         };
     
 	}

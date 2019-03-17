@@ -8,16 +8,18 @@ import SignUp from './components/auth/SignUp';
 import UserForm from "./components/events/UserForm";
 import UpdateEvent from './components/events/UpdateEvent';
 
+
 import NotFound from './components/NotFound';
 
 
-import { Link, NavLink, withRouter } from 'react-router-dom'
 
 
 
 import AppliedRoute from './components/AppliedRoute';
 // import for auth using amplify
 import { Auth } from 'aws-amplify';
+import SignedInLinks from './components/layout/SignedInLinks';
+
 
 class App extends Component {
   constructor(props) {
@@ -61,13 +63,20 @@ class App extends Component {
 			userHasAuthenticated: this.userHasAuthenticated
     };
     return (
+
       <BrowserRouter>
+
+
+			
+
 			{/* Below we are configuring the login page. You must use AppliedRoute and childProps
 			when connecting to AWS Cognito */}
         <div className="App">
 
 
-         <div className="navbar-fixed">
+
+
+         {/* <div className="navbar-fixed">
             <nav className="nav-wrapper red darken-1">
                 <div className="container">
                     <Link to='/' className="brand-logo">ActoKids</Link>
@@ -95,16 +104,22 @@ class App extends Component {
 
                     }</div>
             </nav>
-        </div>
+				</div> */}
+				
+				<Navbar props={childProps} />
 
           <Switch>
-            <AppliedRoute exact path='/' component={ SignIn } props={childProps} />
-            <AppliedRoute path='/events/:event_id' component={ EventDetails } props={childProps}/>
-            <AppliedRoute path='/dashboard' component={ Dashboard } props={childProps}/>
-            <AppliedRoute path='/signup' component={ SignUp } props={childProps}/>
-            <AppliedRoute path='/create' component={ UserForm } props={childProps}/>
-            <AppliedRoute path='/update' component={ UpdateEvent } props={childProps}/>
+							<AppliedRoute exact path='/' component={ SignIn } props={childProps} />
+							<AppliedRoute path='/events/:event_id' component={ EventDetails } props={childProps}/>
+							<AppliedRoute path='/dashboard' component={ Dashboard } props={childProps}/>
+							<AppliedRoute path='/signup' component={ SignUp } props={childProps}/>
+							<AppliedRoute path='/create' component={ UserForm } props={childProps}/>
+							<AppliedRoute path='/update' component={ UpdateEvent } props={childProps}/>
+
+					{ /* Finally, catch all unmatched routes */ }
+						<Route component={NotFound} />
           </Switch>
+					
         </div>
       </BrowserRouter>
     )

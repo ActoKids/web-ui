@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createEvent } from "../../store/actions/eventActions";
+import { Redirect } from 'react-router-dom'; 
+
 
 class CreateEvent extends Component {
   continue = e => {
@@ -10,6 +12,13 @@ class CreateEvent extends Component {
 
   render() {
     const { values, handleChange, handleDate, handleArray } = this.props;
+
+    // const auth = this.props.isAuthenticated;
+
+    // console.log("Create Event page: ", auth);
+
+    // if(!auth) return <Redirect to='/' />
+
 
     return (
       <div className="container">

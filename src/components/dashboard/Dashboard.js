@@ -3,10 +3,14 @@ import { API } from 'aws-amplify';
 import Options from './Options'
 import EventList from '../events/EventList'
 
+import { Redirect } from 'react-router-dom'; 
+
 class Dashboard extends Component {
-    // Setting the state
+    // Constructor is repsonbile for setting up props and setting initial state
     constructor(props) {
+        //pass props to the parent component
         super(props);
+        // State needed
         this.state = {
             events: [],
             isLoading: true
@@ -33,11 +37,20 @@ class Dashboard extends Component {
 
         
         const eventInfo = this.state.events;
+
+            const auth = this.props.isAuthenticated;
+
+            console.log("This is this.props: ", this.props.isAuthenticated);
+
+        if(!auth) return <Redirect to='/' />
+
         return (
             // passing the state of this dashboard to EventList.js
             // as props
             <div className="container">
                 <h3>Dashboard</h3>
+
+                
                 <Options />               
                 <EventList events={eventInfo} key={eventInfo.event_id} />            
             </div>  

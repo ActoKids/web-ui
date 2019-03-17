@@ -26,9 +26,8 @@ export default class SignIn extends Component {
 
     //determining the change of the selected target/state
 	handleChange = event => {
-        const {name, value} = event.target;
 		this.setState({
-            [name]: value
+            [event.target.id]: event.target.value
 
 		});
 	};
@@ -39,12 +38,10 @@ export default class SignIn extends Component {
         //promise is made that async request will not effect load time
         this.setState({ isLoading: true });
 
-        //assign variables from state
-        const { email, password  } = this.state;
-
+        
         //pull credentials from state and checking if authentication is true
 		try {
-            await Auth.signIn(email, password)
+            await Auth.signIn(this.state.email, this.state.password)
             .then( () =>
             console.log("Inside handleSubmit, before this.props"),
             console.log("props: " + this.props.route),
@@ -67,11 +64,11 @@ export default class SignIn extends Component {
                     <h5 className="grey-text text-darken-3">Sign In</h5>
                     <div className="input-field">
                         <label htmlFor="email">Email</label>
-                        <input type="email" id="email" value={this.state.email} onChange={this.handleChange} required/>
+                        <input type="email" value={this.state.email} onChange={this.handleChange}/>
                     </div>
                     <div className="input-field">
                         <label htmlFor="password">Password</label>
-                        <input type="password" id="password" value={this.state.password} onChange={this.handleChange} required/>
+                        <input type="password" value={this.state.password} onChange={this.handleChange}/>
                     </div>
                     <div className="input-field">
                         <button className="btn pink lighten-1" disabled={!this.validateForm()}>Log in</button>

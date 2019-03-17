@@ -8,17 +8,12 @@ import SignUp from './components/auth/SignUp';
 import UserForm from "./components/events/UserForm";
 import UpdateEvent from './components/events/UpdateEvent';
 
-
 import NotFound from './components/NotFound';
-
-
-
 
 
 import AppliedRoute from './components/AppliedRoute';
 // import for auth using amplify
 import { Auth } from 'aws-amplify';
-import SignedInLinks from './components/layout/SignedInLinks';
 
 
 class App extends Component {
@@ -66,45 +61,9 @@ class App extends Component {
 
       <BrowserRouter>
 
-
-			
-
 			{/* Below we are configuring the login page. You must use AppliedRoute and childProps
 			when connecting to AWS Cognito */}
         <div className="App">
-
-
-
-
-         {/* <div className="navbar-fixed">
-            <nav className="nav-wrapper red darken-1">
-                <div className="container">
-                    <Link to='/' className="brand-logo">ActoKids</Link>
-										<div>
-										{console.log('Inside auth: ', this.state.isAuthenticated)}</div>
-
-                </div>
-                <div className="container right-align">{
-
-											this.state.isAuthenticated ?
-
-                      <ul className="right">
-                        <li><NavLink to='/create'>Create Event</NavLink></li>
-                        <li><NavLink to='/' onClick={this.handleLogout}>Sign Out</NavLink></li>
-                        <li><NavLink to='/dashboard' className="btn btn-floating pink lighten-1">EN</NavLink></li>
-                    </ul>
-
-
-										 :
-
-											<ul className="right">
-                        <li><NavLink to='/signup'>Sign Up</NavLink></li>
-                     </ul>
-
-
-                    }</div>
-            </nav>
-				</div> */}
 				
 				<Navbar props={childProps} />
 

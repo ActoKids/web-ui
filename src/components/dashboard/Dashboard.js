@@ -25,7 +25,7 @@ class Dashboard extends Component {
             .then(response => {
                 this.setState({
                     events: response.Items
-                })
+                });
             })
     }
 
@@ -49,7 +49,6 @@ class Dashboard extends Component {
             // as props
             <div className="container">
                 <h3>Dashboard</h3>
-
                 
                 <Options />               
                 <EventList events={eventInfo} key={eventInfo.event_id} />            

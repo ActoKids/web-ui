@@ -6,9 +6,9 @@ import { NavLink } from 'react-router-dom'
 const Navbar = (props) => {
 
     console.log("Navbar props.props.isAuthenticated", props.props.isAuthenticated)
-    
+
     // const auth = props.props.isAuthenticated
-    
+
     // const links = auth ? <SignedInLinks /> : <SignedOutLinks />
 
     return (
@@ -41,13 +41,13 @@ const Navbar = (props) => {
 					<ul className="right">
                         <li><NavLink to='/signup'>Sign Up</NavLink></li>
                         <li><NavLink to='/'>Sign In</NavLink></li>
-                    
+
                      </ul>
 
                     }
                 </div>
             </nav>
-		</div> 
+		</div>
     )
 }
 

@@ -464,24 +464,16 @@ class CreateEvent extends Component {
                 </div>
               </div>
               <div class="file-field input-field">
-                <div class="btn red lighten-1 z-depth-0">
-                  <span>Upload Image</span>
+              <span class="grey-text">Image URL :</span>  
                   <input
-                    type="file"
+                    type="text"
                     defaultValue={values.picture_url}
                     onChange={handleChange("picture_url")}
                   />
-                </div>
-                <div class="file-path-wrapper">
-                  <input
-                    class="file-path validate"
-                    type="text"
-                    onChange={handleChange("picture_url")}
-                  />
+                
                 </div>
               </div>
             </div>
-          </div>
 
           <button
             class="btn red lighten-1 z-depth-0"

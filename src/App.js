@@ -63,7 +63,7 @@ class App extends Component {
 			{/* Below we are configuring the login page. You must use AppliedRoute and childProps
 			when connecting to AWS Cognito */}
         <div className="App">
-				
+
 				<Navbar handleLogout={this.handleLogout} props={childProps} />
 
           <Switch>
@@ -77,7 +77,7 @@ class App extends Component {
 					{ /* Finally, catch all unmatched routes */ }
 						<Route component={NotFound} />
           </Switch>
-					
+
         </div>
       </BrowserRouter>
     )

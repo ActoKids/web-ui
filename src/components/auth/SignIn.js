@@ -10,7 +10,7 @@ export default class SignIn extends Component {
         //set properties of the state
 		this.state = {
 			isLoading: false,
-			email: 'test@zach.com',
+			email: 'test@zack.com',
 			password: 'password2'
         };
 

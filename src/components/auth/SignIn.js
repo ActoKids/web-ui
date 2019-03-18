@@ -64,11 +64,11 @@ export default class SignIn extends Component {
                     <h5 className="grey-text text-darken-3">Sign In</h5>
                     <div className="input-field">
                         <label htmlFor="email">Email</label>
-                        <input type="email" value={this.state.email} onChange={this.handleChange}/>
+                        <input type="email" value={this.state.email} onChange={this.handleChange} required/>
                     </div>
                     <div className="input-field">
                         <label htmlFor="password">Password</label>
-                        <input type="password" value={this.state.password} onChange={this.handleChange}/>
+                        <input type="password" value={this.state.password} onChange={this.handleChange} required/>
                     </div>
                     <div className="input-field">
                         <button className="btn pink lighten-1" disabled={!this.validateForm()}>Log in</button>

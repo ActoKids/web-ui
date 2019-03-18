@@ -8,6 +8,7 @@ moment().format();
 // This is to ensure that only one event is selected, which matches the unique
 // event_id associated with it.
 const EventDetails = (props) => {
+    
     const event = props.location.state.event;
 
 

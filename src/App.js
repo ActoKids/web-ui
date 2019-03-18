@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route, PropsRoute  } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Dashboard from './components/dashboard/Dashboard';
 import EventDetails from './components/events/EventDetails';
@@ -9,7 +9,6 @@ import UserForm from "./components/events/UserForm";
 import UpdateEvent from './components/events/UpdateEvent';
 
 import NotFound from './components/NotFound';
-
 
 import AppliedRoute from './components/AppliedRoute';
 // import for auth using amplify
@@ -65,7 +64,7 @@ class App extends Component {
 			when connecting to AWS Cognito */}
         <div className="App">
 				
-				<Navbar props={childProps} />
+				<Navbar handleLogout={this.handleLogout} props={childProps} />
 
           <Switch>
 							<AppliedRoute exact path='/' component={ SignIn } props={childProps} />

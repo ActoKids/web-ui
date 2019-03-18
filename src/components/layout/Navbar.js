@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom'
 const Navbar = (props) => {
 
     console.log("Navbar props.props.isAuthenticated", props.props.isAuthenticated)
+    
     // const auth = props.props.isAuthenticated
     
     // const links = auth ? <SignedInLinks /> : <SignedOutLinks />
@@ -24,7 +25,8 @@ const Navbar = (props) => {
          <div className="navbar-fixed">
             <nav className="nav-wrapper red darken-1">
                 <div className="container">
-                    <Link to='/' className="brand-logo">ActoKids</Link>
+                    {/* <Link to='/' className="brand-logo">ActoKids</Link> */}
+                    <a href="#" className="brand-logo">ActoKids</a>
                 </div>
 
                 <div className="container right-align">{
@@ -38,6 +40,8 @@ const Navbar = (props) => {
 					:
 					<ul className="right">
                         <li><NavLink to='/signup'>Sign Up</NavLink></li>
+                        <li><NavLink to='/'>Sign In</NavLink></li>
+                    
                      </ul>
 
                     }

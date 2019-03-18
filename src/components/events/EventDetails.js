@@ -7,10 +7,17 @@ import Moment from 'react-moment'
 // This is to ensure that only one event is selected, which matches the unique
 // event_id associated with it.
 const EventDetails = (props) => {
+
     const event = props.location.state.event;
+
+
     return (
+
+
+
         <div className="container section">
-            
+
+
             {/* header section with links to options */}
             <h4>
                 Event Information
@@ -50,7 +57,7 @@ const EventDetails = (props) => {
                     <span className="card-title">Organization - {event.org_name}</span>
                     <p>Contact Name - {event.contact_name}</p>
                     <p>Contact Phone - {event.contact_phone}</p>
-                    <p>Contact Email - {event.contact_email}</p>                    
+                    <p>Contact Email - {event.contact_email}</p>
                 </div>
             </div>
         </div>
@@ -58,4 +65,3 @@ const EventDetails = (props) => {
 }
 
 export default EventDetails
-

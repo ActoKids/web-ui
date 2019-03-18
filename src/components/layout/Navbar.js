@@ -1,20 +1,43 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import SignedInLinks from './SignedInLinks'
-import SignedOutLinks from './SignedOutLinks'
+import { NavLink } from 'react-router-dom'
+
 
 const Navbar = (props) => {
-    const auth = props.props.isAuthenticated
-    const links = auth ? <SignedInLinks /> : <SignedOutLinks />
+
     return (
-        <div className="navbar-fixed">
+      
+         <div className="navbar-fixed">
             <nav className="nav-wrapper red darken-1">
                 <div className="container">
-                    <Link to='/dashboard' className="brand-logo">ActoKids</Link>
-                    { links }
+                    {/* <Link to='/' className="brand-logo">ActoKids</Link> */}
+                    <a href="#" className="brand-logo">ActoKids</a>
+                </div>
+
+
+                {/*Check whether isAuthenticated is true: 
+                    if it is true then display create and sign out buttons
+                    else display sign up and sign in buttons*/}
+
+                <div className="container right-align">{
+
+					props.props.isAuthenticated ?
+
+                      <ul className="right">
+                        <li><NavLink to='/create'>Create Event</NavLink></li>
+                        <li><a href="#" onClick={props.handleLogout}>Sign Out</a></li>
+                    </ul>
+					:
+					<ul className="right">
+                        <li><NavLink to='/signup'>Sign Up</NavLink></li>
+                        <li><NavLink to='/'>Sign In</NavLink></li>
+
+                     </ul>
+
+                    }
                 </div>
             </nav>
-        </div>
+		</div>
     )
 }
 

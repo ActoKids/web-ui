@@ -7,9 +7,11 @@ import Moment from 'react-moment'
 // have been mapped to each individual event, rather than an
 // array of every event
 const EventSummary = ({event}) => {
-    // console.log(event) 
+    // console.log(event)
     return (
         <Link to={{pathname: '/events/' + event.event_id, state: {event: event}}}>
+
+
             <div className="card horizontal hoverable events-summary">
                 <div className="card-stacked">
                     <div className="card-content grey-text text-darken-3">
@@ -21,9 +23,10 @@ const EventSummary = ({event}) => {
                         </div>
                     </div>
                 </div>
+
             </div>
         </Link>
     )
 }
 
-export default EventSummary 
+export default EventSummary

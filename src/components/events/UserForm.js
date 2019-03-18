@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import CreateEvent from "./CreateEvent";
 import ReviewPage from "./ReviewPage";
 import Success from "./Success";
+
 export class UserForm extends Component {
+
+
+
+
   state = {
     step: 1,
 

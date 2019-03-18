@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route, PropsRoute  } from 'react-router-dom';
+import { BrowserRouter, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Dashboard from './components/dashboard/Dashboard';
 import EventDetails from './components/events/EventDetails';
@@ -58,7 +58,7 @@ class App extends Component {
 			{/* Below we are configuring the login page. You must use AppliedRoute and childProps
 			when connecting to AWS Cognito */}
         <div className="App">
-          <Navbar />
+          <Navbar props={childProps}/>
           <Switch>
             <AppliedRoute exact path='/' component={ SignIn } props={childProps} />
             <AppliedRoute path='/events/:event_id' component={ EventDetails } props={childProps}/>

@@ -33,11 +33,11 @@ const EventDetails = (props) => {
                     <img src={event.picture_url} width="200" height="200"/>
                     <p>{event.description}</p>
                     <p>Activity Type - {event.activity_type}</p>
-                    <p>Location - {event.location_name}, {event.location_address}</p>
-                    <p>Dates & Times - {event.start_date_time} to {event.end_date_time}</p>
+                    <p>Location - {event.location_address}</p>
+                    <p>Dates & Times - {event.start_date_time}</p>
                     <p>Frequency - {event.frequency}</p>
                     <p>Ages - {event.min_age} to {event.max_age}</p>
-                    <p>Price - ${event.cost}</p>
+                    <p>Price - {event.cost}</p>
                     <p>Disibilities - {event.disability_types}</p>
                 </div>
             </div>

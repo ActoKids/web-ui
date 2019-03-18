@@ -5,29 +5,19 @@ import { NavLink } from 'react-router-dom'
 
 const Navbar = (props) => {
 
-    console.log("Navbar props.props.isAuthenticated", props.props.isAuthenticated)
-
-    // const auth = props.props.isAuthenticated
-
-    // const links = auth ? <SignedInLinks /> : <SignedOutLinks />
-
     return (
-        // <div className="navbar-fixed">
-        //     <nav className="nav-wrapper red darken-1">
-        //         <div className="container">
-        //             <Link to='/' className="brand-logo">ActoKids</Link>
-        //             {links}
-        //         </div>
-        //     </nav>
-        // </div>
-
-
+      
          <div className="navbar-fixed">
             <nav className="nav-wrapper red darken-1">
                 <div className="container">
                     {/* <Link to='/' className="brand-logo">ActoKids</Link> */}
                     <a href="#" className="brand-logo">ActoKids</a>
                 </div>
+
+
+                {/*Check whether isAuthenticated is true: 
+                    if it is true then display create and sign out buttons
+                    else display sign up and sign in buttons*/}
 
                 <div className="container right-align">{
 

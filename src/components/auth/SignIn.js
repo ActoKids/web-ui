@@ -14,8 +14,8 @@ export default class SignIn extends Component {
 			password: 'password2'
         };
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.handleChange = this.handleChange.bind(this);
+        // this.handleSubmit = this.handleSubmit.bind(this);
 
     }
 

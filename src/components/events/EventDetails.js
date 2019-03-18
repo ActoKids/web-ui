@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-var moment = require('moment');
-moment().format();
+import Moment from 'react-moment'
 
 // Directed to this page when clicking on an event in the dashboard
 // This is a stateless UI component, which gets its props from EventSummary.js
@@ -43,7 +42,7 @@ const EventDetails = (props) => {
                     <p>{event.description}</p>
                     <p>Activity Type - {event.activity_type}</p>
                     <p>Location - {event.location_address}</p>
-                    <p>Dates & Times - {event.start_date_time}</p>
+                    <p>Time & Date - <Moment format="h:mm a - M/DD/YYYY">{event.start_date_time}</Moment></p>
                     <p>Frequency - {event.frequency}</p>
                     <p>Ages - {event.min_age} to {event.max_age}</p>
                     <p>Price - {event.cost}</p>

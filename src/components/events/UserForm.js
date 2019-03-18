@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import CreateEvent from "./CreateEvent";
+import OrgInfo from "./OrgInfo";
+import AddressTime from "./AddressTime.js";
 import ReviewPage from "./ReviewPage";
 import Success from "./Success";
-
 export class UserForm extends Component {
-
-
-
-
   state = {
     step: 1,
 
@@ -29,7 +26,7 @@ export class UserForm extends Component {
     picture_url: "",
     min_age: 0,
     max_age: 0,
-    disability_types: [""],
+    disability_types: [],
     event_status: "Pending",
     approver: "none"
   };
@@ -59,11 +56,13 @@ export class UserForm extends Component {
     this.setState({ [input]: e.target.value.concat(":00.000Z") });
   };
   handleArray = input => e => {
-    var arr = this.state.disability_types.concat('"' + e.target.value + '"');
+    var arr = this.state.disability_types.concat(e.target.value + " ");
     this.setState({ [input]: arr });
   };
+
   render() {
     const { step } = this.state;
+    const { classType } = this.state;
     const {
       user_name,
       event_name,
@@ -123,7 +122,7 @@ export class UserForm extends Component {
         );
       case 2:
         return (
-          <ReviewPage
+          <OrgInfo
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             handleChange={this.handleChange}
@@ -131,6 +130,26 @@ export class UserForm extends Component {
           />
         );
       case 3:
+        return (
+          <AddressTime
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            handleChange={this.handleChange}
+            handleDate={this.handleDate}
+            handleArray={this.handleArray}
+            values={values}
+          />
+        );
+      case 4:
+        return (
+          <ReviewPage
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            handleChange={this.handleChange}
+            values={values}
+          />
+        );
+      case 5:
         return <Success values={values} />;
     }
   }

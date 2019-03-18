@@ -30,6 +30,7 @@ const EventDetails = (props) => {
                 <div className="card-content">
                     <span className="card-title">{event.event_name}</span>
                     <a href={event.event_link}>Event Link</a><hr/>
+                    <img src={event.picture_url} width="200" height="200"/>
                     <p>{event.description}</p>
                     <p>Activity Type - {event.activity_type}</p>
                     <p>Location - {event.location_name}, {event.location_address}</p>

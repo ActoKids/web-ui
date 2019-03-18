@@ -12,6 +12,9 @@ const EventSummary = ({event}) => {
         <Link to={{pathname: '/events/' + event.event_id, state: {event: event}}}>
             <div className="card horizontal hoverable events-summary">
                 <div className="card-content grey-text text-darken-3">
+      
+                   <img src={event.picture_url}  width="50" height="50"/>
+
                     <span className="card-title">{event.event_name} at: {event.location_address}</span>
                     <p>Posted By {event.user_name}</p>
                     <p className="grey-tex">{event.start_date_time}</p>

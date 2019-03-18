@@ -12,10 +12,10 @@ const EventSummary = ({event}) => {
         <Link to={{pathname: '/events/' + event.event_id, state: {event: event}}}>
             <div className="card horizontal hoverable events-summary">
                 <div className="card-content grey-text text-darken-3">
-                    <span className="card-title">{event.event_name} at: {event.location_name}</span>
-                    <p>Posted By {event.contact_name}</p>
+                    <span className="card-title">{event.event_name} at: {event.location_address}</span>
+                    <p>Posted By {event.user_name}</p>
                     <p className="grey-tex">{event.start_date_time}</p>
-                    <p className="grey-text">Ages: {event.min_age} - {event.max_age}</p>
+                    <p className="grey-text">Something Else Here</p>
                 </div>
             </div>
         </Link>

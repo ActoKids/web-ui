@@ -13,6 +13,7 @@ import NotFound from './components/NotFound';
 import AppliedRoute from './components/AppliedRoute';
 // import for auth using amplify
 import { Auth } from 'aws-amplify';
+import getEvents from './components/events/GetEvent';
 
 
 class App extends Component {
@@ -73,6 +74,7 @@ class App extends Component {
 							<AppliedRoute path='/signup' component={ SignUp } props={childProps}/>
 							<AppliedRoute path='/create' component={ UserForm } props={childProps}/>
 							<AppliedRoute path='/update' component={ UpdateEvent } props={childProps}/>
+							<AppliedRoute path='/get' component={ getEvents } props={childProps}/>
 
 					{ /* Finally, catch all unmatched routes */ }
 						<Route component={NotFound} />

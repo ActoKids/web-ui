@@ -129,6 +129,7 @@ render() {
                     <p><b>Description:</b> {description}</p>
                     <p><b>Location:</b> {location_address}</p>
                     <p><b>Contact Email:</b> {contact_email}</p>
+
                   </div>
                   {/* <div class="card-action">
                     <a href="#">This is a link</a>

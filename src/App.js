@@ -7,8 +7,8 @@ import SignIn from './components/auth/SignIn';
 import SignUp from './components/auth/SignUp';
 import UserForm from "./components/events/UserForm";
 import UpdateEvent from './components/events/UpdateEvent';
-
 import NotFound from './components/NotFound';
+import ErrorHandler from "./components/error/ErrorHandler";
 
 import AppliedRoute from './components/AppliedRoute';
 // import for auth using amplify
@@ -66,7 +66,7 @@ class App extends Component {
         <div className="App">
 
 				<Navbar handleLogout={this.handleLogout} props={childProps} />
-
+			<ErrorHandler>
           <Switch>
 							<AppliedRoute exact path='/' component={ SignIn } props={childProps} />
 							<AppliedRoute path='/events/:event_id' component={ EventDetails } props={childProps}/>
@@ -79,7 +79,7 @@ class App extends Component {
 					{ /* Finally, catch all unmatched routes */ }
 						<Route component={NotFound} />
           </Switch>
-
+          </ErrorHandler>
         </div>
       </BrowserRouter>
     )

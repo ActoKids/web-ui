@@ -1,6 +1,14 @@
 import React from 'react'
-import EventSummary from './EventSummary'
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import ConfirmedEvents from './ConfirmedEvents';
+import { withRouter } from "react-router-dom";
+import { API } from "aws-amplify";
+
+
+import { deleteEvents } from "../../store/actions/eventActions";
+import EventSummary from './EventSummary'
+
 
 // Filled with EventSummary.js items
 // props comes from Dashboard.js but we are only passing

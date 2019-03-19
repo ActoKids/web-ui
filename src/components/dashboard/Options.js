@@ -1,8 +1,14 @@
 import React from 'react'
+import PropTypes from "prop-types";
 
-const Options = () => {
+const Options = ({ onDelete }) => {
     return (
         <div className="options">
+        <button
+        onClick={onDelete}
+        href="/"
+        className="option-btn btn-floating btn-small waves-effect waves-light red"
+      >
             <a href="/" className="option-btn btn-floating btn-small waves-effect waves-light red">
                 <i className="large material-icons">delete</i>
             </a>
@@ -13,4 +19,7 @@ const Options = () => {
     )
 }
 
+Options.propTypes = {
+  onDelete: PropTypes.func.isRequired
+};
 export default Options

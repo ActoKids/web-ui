@@ -1,116 +1,53 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createEvent } from "../../store/actions/eventActions";
+import { Redirect } from 'react-router-dom'; 
+
 
 class CreateEvent extends Component {
-  // called below in the form
-  state = {
-    title: "",
-    activity_type: "",
-    description: "",
-    org_name: "",
-    location_name: "",
-    location_address: "",
-    contact_name: "",
-    contact_phone: "",
-    contact_email: "",
-    start_date_time: "",
-    end_date_time: "",
-    frequency: "",
-    cost: "",
-    picture_url: "",
-    min_age: "",
-    max_age: "",
-    disability_types: "",
-    status: "",
-    approver: ""
-  };
-
-  handleChange = e => {
-    this.setState({
-      // targets the id and its value
-      [e.target.id]: e.target.value
-    });
-  };
-
-  handleSubmit = e => {
+  continue = e => {
     e.preventDefault();
-    // passes the event into the function at bottom which begins the dispatch
-    // on createEvent and runs eventActions.js functions
-    this.props.createEvent(this.state);
+    this.props.nextStep();
   };
-//post events to JSON server
-  postForm(data) {
-    fetch("http://localhost:3000/values", {
-      method: "POST", // or 'PUT'
 
-      body: JSON.stringify(data), // data can be `string` or {object}!
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(res => res.json())
-      .then(response => console.log("Success:", JSON.stringify(response)))
-      .catch(error => console.error("Error:", error));
-    //https://api.2edusite.com/v2/events
-    //"http://localhost:3000/values"
-  }
   render() {
-    const {
-      title,
-      activity_type,
-      description,
-      org_name,
-      location_name,
-      location_address,
-      contact_name,
-      contact_phone,
-      contact_email,
-      start_date_time,
-      end_date_time,
-      frequency,
-      cost,
-      picture_url,
-      min_age,
-      max_age,
-      disability_types,
-      status,
-      approver
-    } = this.state;
-    const values = {
-      title,
-      activity_type,
-      description,
-      org_name,
-      location_name,
-      location_address,
-      contact_name,
-      contact_phone,
-      contact_email,
-      start_date_time,
-      end_date_time,
-      frequency,
-      cost,
-      picture_url,
-      min_age,
-      max_age,
-      disability_types,
-      status,
-      approver
-    };
+    const { values, handleChange, handleDate, handleArray } = this.props;
+
+    // const auth = this.props.isAuthenticated;
+
+    // console.log("Create Event page: ", auth);
+
+    // if(!auth) return <Redirect to='/' />
+
+
     return (
       <div className="container">
-        <form onSubmit={this.handleSubmit} className="white">
+        <form className="white">
           <h5 className="grey-text text-darken-3">Create A New Event</h5>
           <div className="input-field ">
             <label htmlFor="text">Event Title</label>
-            <input type="text" id="title" onChange={this.handleChange} />
+            <input
+              type="text"
+              defaultValue={values.event_name}
+              onChange={handleChange("event_name")}
+              required
+            />
+          </div>
+          <br />
+          <div className="input-field ">
+            <label htmlFor="text">Event Link</label>
+            <input
+              type="text"
+              defaultValue={values.event_link}
+              onChange={handleChange("event_link")}
+            />
           </div>
           <br />
           <div
             className="input-field"
             id="activity_type"
-            onChange={this.handleChange}
+            defaultValue={values.activity_type}
+            onChange={handleChange("activity_type")}
           >
             <span class="grey-text">Activity Type</span>
             <div class="row">
@@ -122,7 +59,7 @@ class CreateEvent extends Component {
                     type="radio"
                     value="Camp"
                     id="activity_type"
-                    onChange={this.handleChange}
+                    onChange={handleChange("activity_type")}
                   />
                   <span>Camp</span>
                 </label>
@@ -136,7 +73,7 @@ class CreateEvent extends Component {
                     type="radio"
                     value="Music"
                     id="activity_type"
-                    onChange={this.handleChange}
+                    onChange={handleChange("activity_type")}
                   />
                   <span>Music</span>
                 </label>
@@ -149,7 +86,7 @@ class CreateEvent extends Component {
                     type="radio"
                     value="Museum"
                     id="activity_type"
-                    onChange={this.handleChange}
+                    onChange={handleChange("activity_type")}
                   />
                   <span>Museum</span>
                 </label>
@@ -162,7 +99,7 @@ class CreateEvent extends Component {
                     type="radio"
                     value="Sport"
                     id="activity_type"
-                    onChange={this.handleChange}
+                    onChange={handleChange("activity_type")}
                   />
                   <span>Sport</span>
                 </label>
@@ -175,7 +112,7 @@ class CreateEvent extends Component {
                     type="radio"
                     value="Outdoor & Nature"
                     id="activity_type"
-                    onChange={this.handleChange}
+                    onChange={handleChange("activity_type")}
                   />
                   <span>Outdoor & Nature</span>
                 </label>
@@ -188,7 +125,7 @@ class CreateEvent extends Component {
                     type="radio"
                     value="Other"
                     id="activity_type"
-                    onChange={this.handleChange}
+                    onChange={handleChange("activity_type")}
                   />
                   <span>Other</span>
                 </label>
@@ -199,49 +136,61 @@ class CreateEvent extends Component {
           <div className="input-field">
             <label htmlFor="content">Event Description</label>
             <textarea
-              id="description"
               className="materialize-textarea"
-              onChange={this.handleChange}
+              defaultValue={values.description}
+              onChange={handleChange("description")}
+              required="required"
             />
           </div>
           <div className="input-field">
             <label htmlFor="text">Name of Organization</label>
-            <input type="text" id="org_name" onChange={this.handleChange} />
+            <input
+              type="text"
+              defaultValue={values.org_name}
+              onChange={handleChange("org_name")}
+              required="required"
+            />
           </div>
           <div className="input-field">
             <label htmlFor="text">Location</label>
             <input
               type="text"
-              id="location_name"
-              onChange={this.handleChange}
+              defaultValue={values.location_name}
+              onChange={handleChange("location_name")}
+              required="required"
             />
           </div>
           <div className="input-field">
             <label htmlFor="text">Location Address</label>
             <input
               type="text"
-              id="location_address"
-              onChange={this.handleChange}
+              defaultValue={values.location_address}
+              onChange={handleChange("location_address")}
+              required="required"
             />
           </div>
           <div className="input-field">
             <label htmlFor="text">Contact Name</label>
-            <input type="text" id="contact_name" onChange={this.handleChange} />
+            <input
+              type="text"
+              defaultValue={values.contact_name}
+              onChange={handleChange("contact_name")}
+            />
           </div>
           <div className="input-field">
             <label htmlFor="text">Contact Phone Number</label>
             <input
               type="text"
-              id="contact_phone"
-              onChange={this.handleChange}
+              defaultValue={values.contact_phone}
+              onChange={handleChange("contact_phone")}
             />
           </div>
           <div className="input-field">
             <label htmlFor="text">Contact Email Address</label>
             <input
               type="text"
-              id="contact_email"
-              onChange={this.handleChange}
+              defaultValue={values.contact_email}
+              onChange={handleChange("contact_email")}
             />
           </div>
 
@@ -251,8 +200,9 @@ class CreateEvent extends Component {
               type="date"
               class="datetimepicker"
               type="datetime-local"
-              id="start_date_time"
-              onChange={this.handleChange}
+              defaultValue={values.start_date_time}
+              onChange={handleDate("start_date_time")}
+              required="required"
             />
           </div>
           <div class="row">
@@ -261,15 +211,15 @@ class CreateEvent extends Component {
               type="date"
               class="datetimepicker"
               type="datetime-local"
-              id="end_date_time"
-              onChange={this.handleChange}
+              defaultValue={values.end_date_time}
+              onChange={handleDate("end_date_time")}
             />
           </div>
 
           <div
             className="input-field"
-            id="activity_type"
-            onChange={this.handleChange}
+            defaultValue={values.frequency}
+            onChange={handleChange("frequency")}
           >
             <span class="grey-text">Event Frequency</span>
             <div class="row">
@@ -277,13 +227,12 @@ class CreateEvent extends Component {
                 <label>
                   <input
                     class="with-gap"
-                    name="group1"
+                    name="group3"
                     type="radio"
-                    value="One-time"
-                    id="frequency"
-                    onChange={this.handleChange}
+                    value="Once"
+                    onChange={handleChange("frequency")}
                   />
-                  <span>One-time</span>
+                  <span>Once</span>
                 </label>
               </div>
 
@@ -291,24 +240,10 @@ class CreateEvent extends Component {
                 <label>
                   <input
                     class="with-gap"
-                    name="group1"
-                    type="radio"
-                    value="Reoccuring"
-                    id="frequency"
-                    onChange={this.handleChange}
-                  />
-                  <span>Reoccuring</span>
-                </label>
-              </div>
-              <div class="col s2">
-                <label>
-                  <input
-                    class="with-gap"
-                    name="group1"
+                    name="group3"
                     type="radio"
                     value="Daily"
-                    id="frequency"
-                    onChange={this.handleChange}
+                    onChange={handleChange("frequency")}
                   />
                   <span>Daily</span>
                 </label>
@@ -317,11 +252,10 @@ class CreateEvent extends Component {
                 <label>
                   <input
                     class="with-gap"
-                    name="group1"
+                    name="group3"
                     type="radio"
                     value="Weekly"
-                    id="frequency"
-                    onChange={this.handleChange}
+                    onChange={handleChange("frequency")}
                   />
                   <span>Weekly</span>
                 </label>
@@ -330,26 +264,12 @@ class CreateEvent extends Component {
                 <label>
                   <input
                     class="with-gap"
-                    name="group1"
+                    name="group3"
                     type="radio"
                     value="Monthly"
-                    id="frequency"
-                    onChange={this.handleChange}
+                    onChange={handleChange("frequency")}
                   />
                   <span>Monthly</span>
-                </label>
-              </div>
-              <div class="col s2">
-                <label>
-                  <input
-                    class="with-gap"
-                    name="group1"
-                    type="radio"
-                    value="Annually"
-                    id="frequency"
-                    onChange={this.handleChange}
-                  />
-                  <span>Annually</span>
                 </label>
               </div>
             </div>
@@ -357,15 +277,20 @@ class CreateEvent extends Component {
 
           <div className="input-field">
             <label htmlFor="text">Event Price</label>
-            <input type="text" id="cost" onChange={this.handleChange} />
+            <input
+              type="text"
+              defaultValue={values.cost}
+              onChange={handleChange("cost")}
+              required
+            />
           </div>
           <div class="row">
             <div class="col s3">
               <label>Minimum Age:</label>
               <select
                 class="browser-default"
-                id="min_age"
-                onChange={this.handleChange}
+                defaultValue={values.min_age}
+                onChange={handleChange("min_age")}
               >
                 <option value="" disabled selected>
                   Choose your option
@@ -401,8 +326,8 @@ class CreateEvent extends Component {
               <label>Maximum Age:</label>
               <select
                 class="browser-default"
-                id="max_age"
-                onChange={this.handleChange}
+                defaultValue={values.max_age}
+                onChange={handleChange("max_age")}
               >
                 <option value="" disabled selected>
                   Choose your option
@@ -435,8 +360,8 @@ class CreateEvent extends Component {
           <div className="input-field">
             <div
               className="input-field"
-              id="disability_types"
-              onChange={this.handleChange}
+              //defaultValue={values.disability_types}
+              //onChange={handleChange("disability_types")}
             >
               <span class="grey-text">Disability Types</span>
               <div class="row">
@@ -447,8 +372,7 @@ class CreateEvent extends Component {
                       name="group2"
                       type="checkbox"
                       value="Adaptive Equipment"
-                      id="disability_types"
-                      onChange={this.handleChange}
+                      onChange={handleArray("disability_types")}
                     />
                     <span>Adaptive Equipment</span>
                   </label>
@@ -461,8 +385,7 @@ class CreateEvent extends Component {
                       name="group2"
                       type="checkbox"
                       value="Cognitive"
-                      id="disability_types"
-                      onChange={this.handleChange}
+                      onChange={handleArray("disability_types")}
                     />
                     <span>Cognitive</span>
                   </label>
@@ -474,8 +397,7 @@ class CreateEvent extends Component {
                       name="group2"
                       type="checkbox"
                       value="Hearing"
-                      id="disability_types"
-                      onChange={this.handleChange}
+                      onChange={handleArray("disability_types")}
                     />
                     <span>Hearing</span>
                   </label>
@@ -487,8 +409,7 @@ class CreateEvent extends Component {
                       name="group2"
                       type="checkbox"
                       value="Mobility"
-                      id="disability_types"
-                      onChange={this.handleChange}
+                      onChange={handleArray("disability_types")}
                     />
                     <span>Mobility</span>
                   </label>
@@ -500,8 +421,7 @@ class CreateEvent extends Component {
                       name="group2"
                       type="checkbox"
                       value="Sensorye"
-                      id="disability_types"
-                      onChange={this.handleChange}
+                      onChange={handleArray("disability_types")}
                     />
                     <span>Sensory</span>
                   </label>
@@ -513,8 +433,7 @@ class CreateEvent extends Component {
                       name="group2"
                       type="checkbox"
                       value="Targeted Available"
-                      id="disability_types"
-                      onChange={this.handleChange}
+                      onChange={handleArray("disability_types")}
                     />
                     <span>Targeted Available</span>
                   </label>
@@ -526,8 +445,7 @@ class CreateEvent extends Component {
                       name="group2"
                       type="checkbox"
                       value="Wheelchair"
-                      id="disability_types"
-                      onChange={this.handleChange}
+                      onChange={handleArray("disability_types")}
                     />
                     <span>Wheelchair</span>
                   </label>
@@ -539,23 +457,31 @@ class CreateEvent extends Component {
                       name="group2"
                       type="checkbox"
                       value="Vision"
-                      id="disability_types"
-                      onChange={this.handleChange}
+                      onChange={handleArray("disability_types")}
                     />
                     <span>Vision</span>
                   </label>
                 </div>
               </div>
+              <div class="file-field input-field">
+              <span class="grey-text">Image URL :</span>  
+                  <input
+                    type="text"
+                    defaultValue={values.picture_url}
+                    onChange={handleChange("picture_url")}
+                  />
+                
+                </div>
+              </div>
             </div>
-          </div>
 
           <button
             class="btn red lighten-1 z-depth-0"
             type="submit"
             name="action"
-            onClick={this.postForm(values)}
+            onClick={this.continue}
           >
-            Submit
+            continue
             <i class="material-icons right">send</i>
           </button>
         </form>

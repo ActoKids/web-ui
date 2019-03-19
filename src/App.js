@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
-import Dashboard from './components/dashboard/Dashboard';
-import EventDetails from './components/events/EventDetails';
-import SignIn from './components/auth/SignIn';
-import SignUp from './components/auth/SignUp';
-import UserForm from "./components/events/UserForm";
-import UpdateEvent from './components/events/UpdateEvent';
 
-import NotFound from './components/NotFound';
+import Routes from './Routes';
 
-import AppliedRoute from './components/AppliedRoute';
 // import for auth using amplify
 import { Auth } from 'aws-amplify';
 
@@ -48,40 +41,24 @@ class App extends Component {
 		await Auth.signOut();
 
 		this.userHasAuthenticated(false);
-		this.props.history.push('/SignIn');
+		this.props.history.push('/');
 	};
 
 	render() {
 		const childProps = {
 			isAuthenticated: this.state.isAuthenticated,
 			userHasAuthenticated: this.userHasAuthenticated
-    };
+		};
+		
     return (
+			<div>
+				
+					<Navbar handleLogout={this.handleLogout} props={childProps} />
+					<Routes childProps={childProps}/>
 
-      <BrowserRouter>
-
-			{/* Below we are configuring the login page. You must use AppliedRoute and childProps
-			when connecting to AWS Cognito */}
-        <div className="App">
-
-				<Navbar handleLogout={this.handleLogout} props={childProps} />
-
-          <Switch>
-							<AppliedRoute exact path='/' component={ SignIn } props={childProps} />
-							<AppliedRoute path='/events/:event_id' component={ EventDetails } props={childProps}/>
-							<AppliedRoute path='/dashboard' component={ Dashboard } props={childProps}/>
-							<AppliedRoute path='/signup' component={ SignUp } props={childProps}/>
-							<AppliedRoute path='/create' component={ UserForm } props={childProps}/>
-							<AppliedRoute path='/update' component={ UpdateEvent } props={childProps}/>
-
-					{ /* Finally, catch all unmatched routes */ }
-						<Route component={NotFound} />
-          </Switch>
-
-        </div>
-      </BrowserRouter>
-    )
+			</div>
+    );
   }
 }
 
-export default App;
+export default withRouter(App);

@@ -61,6 +61,13 @@ export class UserForm extends Component {
   };
 
   render() {
+
+        const auth = this.props.isAuthenticated;
+
+        {/*Check if the user is already authicated
+            if is not, then redirect to sign in page*/}
+        if(!auth) return <Redirect to='/' />
+
     const { step } = this.state;
     const { classType } = this.state;
     const {

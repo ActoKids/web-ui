@@ -8,23 +8,35 @@ import Moment from 'react-moment'
 // array of every event
 const EventSummary = ({event}) => {
     // console.log(event)
+
+    const imgStyles = {
+        'padding-top': '15px',
+        'padding-right': '20px',
+        'width': '75px',
+    }
+
     return (
-        <Link to={{pathname: '/events/' + event.event_id, state: {event: event}}}>
-
-
-            <div className="card horizontal hoverable events-summary">
-                <div className="card-content grey-text text-darken-3">
-
-                   <img src={event.picture_url}  width="50" height="50"/>
-
-                    <span className="card-title">{event.event_name} at: {event.location_address}</span>
-                    <p>Posted By {event.user_name}</p>
-                    <Moment format="h:mm a - MM/DD/YYYY">{event.start_date_time}</Moment>
-                    <p className="grey-text">Something Else Here</p>
-                </div>
-
+        <div className="card horizontal hoverable events-summary">
+            <label className="boxStyles">
+                <input type="checkbox"/>
+                <span></span>
+            </label>
+            <div className="card-stacked">
+                <Link to={{pathname: '/events/' + event.event_id, state: {event: event}}}>
+                    <div className="card-content grey-text text-darken-3">
+                        <span className="card-title">{event.event_name}</span>
+                        <div className="card-action">
+                            <p>Posted By {event.user_name} at <Moment format="h:mm A">{event.created_timestamp}</Moment> on <Moment format="MM/DD/YYYY">{event.created_timestamp}</Moment></p>
+                            <p>Status: {event.event_status}</p>
+                            <p className="grey-text">Hosted By {event.org_name}</p>
+                        </div>
+                    </div>
+                </Link>  
             </div>
-        </Link>
+            <div className="card-image">
+                <img src={event.picture_url} alt="Org Picture" style={imgStyles} />     
+            </div>      
+        </div>
     )
 }
 

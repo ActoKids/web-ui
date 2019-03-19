@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createEvent } from "../../store/actions/eventActions";
 
+
 class CreateEvent extends Component {
   continue = e => {
     e.preventDefault();

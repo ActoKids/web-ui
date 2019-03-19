@@ -1,6 +1,7 @@
 import React from 'react'
 import EventSummary from './EventSummary'
 import ConfirmedEvents from './ConfirmedEvents';
+import StatefulSummary from './StatefulSummary';
 
 // Filled with EventSummary.js items
 // props comes from Dashboard.js but we are only passing
@@ -17,7 +18,7 @@ const EventList = ({events}) => {
                 if (event.event_status === "pending") {
                     return (
                         <div>
-                            <EventSummary event={event} key={events.event_id}/>                   
+                            <StatefulSummary event={event} key={events.event_id}/>                   
                         </div>
                     )
                 } 

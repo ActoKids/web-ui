@@ -1,19 +1,33 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Moment from 'react-moment'
+import { API } from 'aws-amplify'
+import { s3Upload } from '../../'
 
 // The information that is displayed on each card in the
 // EventList on the Dashboard. Props come from EventList which
 // have been mapped to each individual event, rather than an
 // array of every event
 const EventSummary = ({event}) => {
-    // console.log(event)
+
+    const setState = ({
+        [event]: event,
+    })
+
+    console.log(setState)
 
     const imgStyles = {
         'paddingTop': '15px',
         'paddingRight': '20px',
         'width': '75px',
     }
+
+    function saveEventStatus(event) {
+        return API.put("events", `/events/${event.event_id}`, {
+            body: event
+        });
+    }
+
 
     return (
         <div className="card horizontal hoverable events-summary">

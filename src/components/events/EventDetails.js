@@ -25,7 +25,7 @@ const EventDetails = (props) => {
 
                         {/* Shows before card is opened */}
                         <div className="card-content">
-                            <span className="card-title activator">{event.event_name} - <b>Status: {event.event_status}</b><i class="material-icons right">more_vert</i></span>
+                            <span className="card-title activator">{event.event_name} - <b>Status: {event.event_status}</b><i className="material-icons right">more_vert</i></span>
                             <p className="grey-text">Posted at <Moment format="h:mm a - MM/DD/YYYY">{event.created_timestamp}</Moment></p>
                         </div>
 
@@ -36,7 +36,7 @@ const EventDetails = (props) => {
 
                         {/* Shows when card is open */}
                         <div className="card-reveal">
-                            <span className="card-title activator">{event.event_name} - <b>Status: {event.event_status}</b><i class="material-icons right">close</i></span>
+                            <span className="card-title activator">{event.event_name} - <b>Status: {event.event_status}</b><i className="material-icons right">close</i></span>
                             
                             <div className="section">
                                 <p>{event.description}</p>

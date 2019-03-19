@@ -46,10 +46,16 @@ class Dashboard extends Component {
             // passing the state of this dashboard to EventList.js
             // as props
             <div className="container">
-                <h3>Dashboard</h3>
                 
-                <Options />               
-                <EventList events={eventInfo} key={eventInfo.event_id} />            
+                <div className="row">   
+                    <div className="col s2"></div>  
+                    <div className="col s8"> 
+                        <h3>Dashboard</h3>
+                         <Options />         
+                        <EventList events={eventInfo} key={eventInfo.event_id} />
+                    </div>
+                    <div className="col s2"></div>
+                </div>            
             </div>  
         )
     }

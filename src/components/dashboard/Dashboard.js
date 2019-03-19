@@ -40,8 +40,8 @@ class Dashboard extends Component {
 
             const auth = this.props.isAuthenticated;
 
-        {/*Check if the user is already authicated 
-            if is not, then redirect to sign in page*/}
+        /*Check if the user is already authicated 
+            if is not, then redirect to sign in page*/
         if(!auth) return <Redirect to='/' />
 
         return (

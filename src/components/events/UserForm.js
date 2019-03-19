@@ -3,10 +3,10 @@ import CreateEvent from "./CreateEvent";
 import ReviewPage from "./ReviewPage";
 import Success from "./Success";
 
+import { Redirect } from 'react-router-dom'; 
+
+
 export class UserForm extends Component {
-
-
-
 
   state = {
     step: 1,
@@ -63,6 +63,13 @@ export class UserForm extends Component {
     this.setState({ [input]: arr });
   };
   render() {
+
+        const auth = this.props.isAuthenticated;
+
+        {/*Check if the user is already authicated 
+            if is not, then redirect to sign in page*/}
+        if(!auth) return <Redirect to='/' />
+
     const { step } = this.state;
     const {
       user_name,

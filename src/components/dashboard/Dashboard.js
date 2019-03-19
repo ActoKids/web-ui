@@ -34,11 +34,9 @@ class Dashboard extends Component {
     }
 
     render() {
-
-        
         const eventInfo = this.state.events;
 
-            const auth = this.props.isAuthenticated;
+        const auth = this.props.isAuthenticated;
 
         {/*Check if the user is already authicated 
             if is not, then redirect to sign in page*/}

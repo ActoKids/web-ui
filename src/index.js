@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware } from 'redux'
@@ -41,9 +43,15 @@ Amplify.configure({
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
-	<Provider store={store}>
-		<App />
-	</Provider>
+
+	<Router>
+		<Provider store={store}>
+			<App />
+		</Provider>
+
+	</Router>
+
+	
 
 , document.getElementById('root'));
 

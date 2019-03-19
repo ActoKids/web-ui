@@ -384,12 +384,16 @@ class CreateEvent extends Component {
                   </label>
                 </div>
                 <div class="col s6">
-                  <label htmlFor="text">Other</label>
-                  <input
-                    type="text"
-                    defaultValue={values.disability_type}
-                    onChange={handleArray("disability_types")}
-                  />
+                  <label>
+                    <input
+                      class="with-gap"
+                      name="group2"
+                      type="checkbox"
+                      value="Vision"
+                      onChange={handleArray("disability_types")}
+                    />
+                    <span>Other</span>
+                  </label>
                 </div>
               </div>
               <div class="file-field input-field">

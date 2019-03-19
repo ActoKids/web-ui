@@ -1,10 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 
 
 const Navbar = (props) => {
-
+    
     return (
       
          <div className="navbar-fixed">
@@ -25,7 +24,8 @@ const Navbar = (props) => {
 
                       <ul className="right">
                         <li><NavLink to='/create'>Create Event</NavLink></li>
-                        <li><a href="#" onClick={props.handleLogout}>Sign Out</a></li>
+                        <li><a onClick={props.handleLogout}>Sign Out</a></li>
+                   
                     </ul>
 					:
 					<ul className="right">

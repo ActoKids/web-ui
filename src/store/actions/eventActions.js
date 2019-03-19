@@ -6,3 +6,10 @@ export const createEvent = event => {
     dispatch({ type: "CREATE_EVENT", event });
   };
 };
+
+// receives and array of eventIds to remove them
+export const deleteEvents = (eventIds = []) => {
+  return dispatch => {
+    dispatch({ type: "DELETE_EVENTS", payload: eventIds });
+  };
+};

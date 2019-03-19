@@ -4,6 +4,9 @@ import OrgInfo from "./OrgInfo";
 import AddressTime from "./AddressTime.js";
 import ReviewPage from "./ReviewPage";
 import Success from "./Success";
+import { Redirect } from 'react-router-dom'; 
+
+
 export class UserForm extends Component {
   state = {
     step: 1,

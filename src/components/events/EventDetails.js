@@ -10,7 +10,7 @@ const EventDetails = (props) => {
     console.log(props)
     const event = props.location.state.event;
     const styles = {
-        'padding': '10px 10px',
+        'padding': '10px',
     }
     return (
         <div className="container">

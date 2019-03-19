@@ -33,6 +33,8 @@ class Dashboard extends Component {
         this.getEvents();
     }
 
+    
+
     render() {
         const eventInfo = this.state.events;
 
@@ -46,12 +48,11 @@ class Dashboard extends Component {
             // passing the state of this dashboard to EventList.js
             // as props
                 
-                <div className="container">
-                        <h3>Dashboard</h3>
-                         <Options />         
-                        <EventList events={eventInfo} key={eventInfo.event_id} />
-                    
-                </div>            
+            <div className="container">
+                <h3>Dashboard</h3>
+                <Options />         
+                <EventList events={eventInfo} key={eventInfo.event_id} />
+            </div>            
         )
     }
 }

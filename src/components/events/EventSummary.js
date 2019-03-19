@@ -15,33 +15,27 @@ const EventSummary = ({event}) => {
         'width': '75px',
     }
 
-    const boxStyles = {
-        'padding-top': '50px',
-        'padding-left': '10px',
-    }
-
     return (
         <div className="card horizontal hoverable events-summary">
-            <label style={boxStyles}>
+            <label className="boxStyles">
                 <input type="checkbox"/>
                 <span></span>
             </label>
-                <div className="card-stacked">
-                    <Link to={{pathname: '/events/' + event.event_id, state: {event: event}}}>
-                        <div className="card-content grey-text text-darken-3">
-                            <span className="card-title">{event.event_name}</span>
-                            <div className="card-action">
-                                <p>Posted By {event.user_name}</p>
-                                <Moment format="h:mm a - MM/DD/YYYY">{event.start_date_time}</Moment>
-                                <p className="grey-text">Hosted By {event.org_name}</p>
-                            </div>
+            <div className="card-stacked">
+                <Link to={{pathname: '/events/' + event.event_id, state: {event: event}}}>
+                    <div className="card-content grey-text text-darken-3">
+                        <span className="card-title">{event.event_name}</span>
+                        <div className="card-action">
+                            <p>Posted By {event.user_name} at <Moment format="h:mm A">{event.created_timestamp}</Moment> on <Moment format="MM/DD/YYYY">{event.created_timestamp}</Moment></p>
+                            <p>Status: {event.event_status}</p>
+                            <p className="grey-text">Hosted By {event.org_name}</p>
                         </div>
-                    </Link>  
-                </div>
-                <div className="card-image">
-                    <img src={event.picture_url} alt="Org Picture" style={imgStyles}/>     
-                </div>      
-            
+                    </div>
+                </Link>  
+            </div>
+            <div className="card-image">
+                <img src={event.picture_url} alt="Org Picture" style={imgStyles} />     
+            </div>      
         </div>
     )
 }

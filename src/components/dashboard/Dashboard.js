@@ -33,12 +33,12 @@ class Dashboard extends Component {
         this.getEvents();
     }
 
-    render() {
+    
 
-        
+    render() {
         const eventInfo = this.state.events;
 
-            const auth = this.props.isAuthenticated;
+        const auth = this.props.isAuthenticated;
 
         /*Check if the user is already authicated 
             if is not, then redirect to sign in page*/
@@ -47,12 +47,12 @@ class Dashboard extends Component {
         return (
             // passing the state of this dashboard to EventList.js
             // as props
+                
             <div className="container">
                 <h3>Dashboard</h3>
-                
-                <Options />               
-                <EventList events={eventInfo} key={eventInfo.event_id} />            
-            </div>  
+                <Options />         
+                <EventList events={eventInfo} key={eventInfo.event_id} />
+            </div>            
         )
     }
 }

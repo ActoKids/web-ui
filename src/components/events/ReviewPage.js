@@ -7,15 +7,15 @@ class ReviewPage extends Component {
     // PROCESS FORM //
     this.props.nextStep();
     let data = this.props.values;
-    data.cost = parseInt(data.cost); // remove the quotes from the cost value
+    data.cost = parseFloat(data.cost); // remove the quotes from the cost value
     data.min_age = parseInt(data.min_age); // remove the quotes from the min_age
     data.max_age = parseInt(data.max_age); // remove the quotes from the max_age
-    data.disability_types = "[" + data.disability_types + "]";
-    data.disability_types =
-      data.disability_types.slice(0, 1) + data.disability_types.slice(2); // remove the first , from the string
-    data.disability_types = JSON.parse(data.disability_types);
+    // data.disability_types = "[" + data.disability_types + "]";
+    //data.disability_types =
+    //data.disability_types.slice(0, 1) + data.disability_types.slice(2); // remove the first , from the string
+    //data.disability_types = JSON.parse(data.disability_types);
 
-    fetch("https://api.2edusite.com/v1/events", {
+    fetch("https://api-alexc.2edusite.com/v1/events", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -147,7 +147,6 @@ class ReviewPage extends Component {
           onClick={this.continue}
         >
           continue
-          <i class="material-icons right">send</i>
         </button>
 
         <button

@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 
 
 
+
 // Filled with EventSummary.js items
 const EventList = ({events}) => {
     return (

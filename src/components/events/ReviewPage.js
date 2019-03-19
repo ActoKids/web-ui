@@ -147,7 +147,6 @@ class ReviewPage extends Component {
           onClick={this.continue}
         >
           continue
-          <i class="material-icons right">send</i>
         </button>
 
         <button

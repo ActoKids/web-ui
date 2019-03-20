@@ -13,18 +13,19 @@ const EventList = ({events}) => {
             {/* checking to see if events exist then mapping them */}
             {/* Mapping events means that each individual event can be
                 read by EventSummary.js */}
+
+                
             {events && events.map(event => {
-                if (event.event_status === "pending") {
+                if (event && event.event_status === "pending") {
                     return (
                         <div>
                             <EventSummary event={event} key={events.event_id}/>                   
                         </div>
                     )
                 } 
-                   
             })}
             {events && events.map(event => {
-                if (event.event_status === "confirmed") {
+                if (event && event.event_status === "confirmed") {
                     return (
                         <div>
                             <ConfirmedEvents event={event} key={events.event_id}/>                   

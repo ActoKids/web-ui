@@ -3,9 +3,14 @@ import { API } from 'aws-amplify';
 import Options from './Options'
 import EventList from '../events/EventList'
 import Fuse from 'fuse.js';
+
 import { connect } from 'react-redux'
+
 import { Redirect } from 'react-router-dom'; 
 import { saveEvents } from "../../store/actions/eventActions";
+
+//users to events 
+//user to event
 
 //users to events 
 //user to event
@@ -111,6 +116,7 @@ class Dashboard extends Component {
             <div className="container">
                 <h3>Dashboard</h3>
 
+
                 {/* insert filter/search bar here */}
                 <div class="input-field">
                     <input id="search" type="search" onChange={(e) => this.filterFunction(e)} />
@@ -122,6 +128,7 @@ class Dashboard extends Component {
                           </button>
                         </div>
                 <EventList Options={Options} events={eventInfo} key={eventInfo.event_id} />
+
             </div>            
         )
     }

@@ -17,7 +17,7 @@ class OrgInfo extends Component {
       str1 = arr[i];
       for (var j = i + 1; j < length; j++) {
         var str2 = arr[j];
-        if (str1 == str2) {
+        if (str1 === str2) {
           arr.splice(j, 1); //remove the type that appeared two times
           arr.splice(i, 1);
         }

@@ -10,8 +10,8 @@ const EventSummary = ({event}) => {
     // console.log(event)
 
     const imgStyles = {
-        'padding-top': '15px',
-        'padding-right': '20px',
+        'paddingTop': '15px',
+        'paddingRight': '20px',
         'width': '75px',
     }
 

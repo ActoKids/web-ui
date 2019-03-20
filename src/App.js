@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import Navbar from './components/layout/Navbar';
+import { BrowserRouter } from "react-router-dom";
 
+import Navbar from './components/layout/Navbar';
+import ErrorHandler from "./components/error/ErrorHandler";
 import Routes from './Routes';
 
 // import for auth using amplify
 import { Auth } from 'aws-amplify';
-
 
 class App extends Component {
   constructor(props) {
@@ -51,12 +52,16 @@ class App extends Component {
 		};
 		
     return (
-			<div>
-				
-					<Navbar handleLogout={this.handleLogout} props={childProps} />
-					<Routes childProps={childProps}/>
-
-			</div>
+      <BrowserRouter>
+        {/* Below we are configuring the login page. You must use AppliedRoute and childProps
+				when connecting to AWS Cognito */}
+        <div className="App">
+          <Navbar handleLogout={this.handleLogout} props={childProps} />
+          <ErrorHandler>
+            <Routes childProps={childProps} />
+          </ErrorHandler>
+        </div>
+      </BrowserRouter>
     );
   }
 }

@@ -14,7 +14,7 @@ const Navbar = (props) => {
                                 props.props.isAuthenticated ?
                                     <Link to='/dashboard' className="brand-logo">ActoKids</Link>
                                 :
-                                <Link to='/' className="brand-logo">ActoKids</Link>
+                                <Link to='/' className="brand-logo">ActoKids2</Link>
                         }</div>
 
             

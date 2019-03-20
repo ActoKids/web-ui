@@ -4,13 +4,7 @@ import Options from './Options'
 import EventList from '../events/EventList'
 import Fuse from 'fuse.js';
 
-import { connect } from 'react-redux'
-
 import { Redirect } from 'react-router-dom'; 
-import { saveEvents } from "../../store/actions/eventActions";
-
-//users to events 
-//user to event
 
 //users to events 
 //user to event
@@ -40,9 +34,6 @@ class Dashboard extends Component {
                     events: response.Items,
                     filteredEvents: response.Items,
                 });
-                 if (this.props.saveEvents) {
-                   this.props.saveEvents(response.Items)
-                 }
             })
 
             
@@ -119,7 +110,7 @@ class Dashboard extends Component {
                 
             <div className="container">
                 <h3>Dashboard</h3>
-
+                <Options />         
 
                 {/* insert filter/search bar here */}
                 <div class="input-field">
@@ -131,19 +122,10 @@ class Dashboard extends Component {
                          <i class="material-icons">cancel</i>
                           </button>
                         </div>
-                <EventList Options={Options} events={eventInfo} key={eventInfo.event_id} />
-
+                <EventList events={eventInfo} key={eventInfo.event_id} />
             </div>            
         )
     }
 }
 
-function mapStateToProps() {
-  return {}
-}
-
-const mapDispatchToProps = {
- saveEvents
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
+export default Dashboard

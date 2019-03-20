@@ -8,11 +8,20 @@ import ConfirmedEvents from './ConfirmedEvents';
 
 
 const EventList = ({events}) => {
+
+    console.log("event length: ",events.length );
+
+
     return (
-        <div className="event-list section">
-            {/* checking to see if events exist then mapping them */}
-            {/* Mapping events means that each individual event can be
-                read by EventSummary.js */}
+
+        <div className="event-list section">{
+                events.length > 1 || events.length > 0 ? 
+
+            /* checking to see if events exist then mapping them */
+            /* Mapping events means that each individual event can be
+                read by EventSummary.js */
+
+            <div>
             {events && events.map(event => {
                 if (event.event_status === "pending") {
                     return (
@@ -31,8 +40,17 @@ const EventList = ({events}) => {
                         </div>
                     )
                 } 
-            })}       
-        </div>
+            })}  
+
+            </div>
+
+            : 
+
+            <div className="section">
+                <p>Event List is empty, please create a new event</p>
+            </div>
+            
+        }</div>
     )
 }
 

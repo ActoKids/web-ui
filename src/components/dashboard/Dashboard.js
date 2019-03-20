@@ -27,7 +27,11 @@ class Dashboard extends Component {
                     events: response.Items
                 });
             })
+
+            
     }
+
+
 
     componentDidMount() {
         this.getEvents();

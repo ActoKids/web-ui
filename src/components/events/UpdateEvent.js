@@ -1,9 +1,42 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { API } from 'aws-amplify';
+
 
 
 
 class UpdateEvent extends Component {
+  // Constructor is repsonbile for setting up props and setting initial state
+    constructor(props) {
+    //pass props to the parent component
+    super(props);
+    // State needed
+    this.state = {
+        events: [],
+        isLoading: true
+    };
+}
+
+// Calling AWS API get() method. This method takes in
+    // two parameters: the API name "events" and the API URL "/events"
+    // Then we set the state of the component to the API's response
+
+    componentDidMount(){
+
+      API.put("events", "/events")
+          .then(response => {
+              this.setState({
+                  events: response.Items
+              });
+          })
+
+          
+}
+
+
+  
+
+
   // called below in the form
   state = {
     title: "",

@@ -11,7 +11,12 @@ import getEvent from './components/events/GetEvent';
 import NotFound from './components/NotFound';
 import UserForm from './components/events/UserForm';
 
+
+
 export default ({ childProps }) => (
+
+
+
 	<Switch>
                 
                 <AppliedRoute path='/' exact component={ SignIn } props={childProps}/>

@@ -13,7 +13,7 @@ export default class getEvents extends Component{
     error: null
   }
 
-  /* //This controls the static view of the events on the dashboard
+  /* This controls the static view of the events on the dashboard
   //  otherwise, the list disappears until something is typed in 
   //  the search bar
   this.viewabilityConfig = {
@@ -26,25 +26,37 @@ export default class getEvents extends Component{
   this.pageReload = this.pageReload.bind(this);
 }
 
-
+//this is the pink X below the search bar. It clears any filters that a
+//  user has placed, and reloads the events while refreshing data from API
 pageReload() {
   window.location.reload();
 }
  
+//Dashboard filter/search function to scan through events
 filterFunction(event) {
   
   //window.location.reload();
   let filter = event.target.value;
-  let newArr = [''];
+  
+  //invoke array below only if you revert from fuse to the for loop of the filter()
+  //let newArr = [''];
+
   let users = this.state.users;
   let disabilityTypes;
   var options = {
-    keys: ['activity_type', 'disability_types', 'event_name']
-  };
+    
+    //these keys are the objects we will scan through. To add a new field
+    //  simply add , 'object']. Remember the more items you filter through
+    //  the longer it takes, therefore negativly impacting performance
+    keys: ['activity_type', 'disability_types']
+  };//end filterFunction
+  
+  //invoke the fuse library
   let fuse = new Fuse(users, options);
-
   let fuseResult = fuse.search(filter);
  
+  //If you prefer NOT to use fuse for your filter you can utilize this for loop
+  //  to search through the list of events
    /*  for(let i = 0; i < this.state.users.length; i += 1) {
       if(users[i].disability_types) {
         disabilityTypes = users[i].disability_types;
@@ -80,14 +92,8 @@ componentDidMount() {
       .catch(error => this.setState({ error, isLoading: false }));
   }
 
-
-  
-
 render() {
-  const { isLoading, users, error, filteredUsers } = this.state;
-
-  
- 
+  const { isLoading, users, error, filteredUsers } = this.state; 
     return (
         <div className="container">
             <React.Fragment>
@@ -98,19 +104,12 @@ render() {
                   <div class="input-field">
                     <input id="search" type="search" onChange={(e) => this.filterFunction(e)} />
                     <label for="search"><i class="material-icons">search</i></label>
-                    
-                    
                   </div>
                   <div class="input-field">
-                    
-              
                          <button className="btn pink lighten-1" onClick={this.pageReload}>
                          <i class="material-icons">cancel</i>
                           </button>
                         </div>
-                
-                    
-                
             </form>
 
             {error ? <p>{error.message}</p> : null}
@@ -160,13 +159,9 @@ render() {
 
                       </div>
                     </div>
-
-
               )}
             </React.Fragment>
       </div>
-  
-
     );
   }
 }

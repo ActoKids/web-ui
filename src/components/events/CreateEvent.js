@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createEvent } from "../../store/actions/eventActions";
 
-
 class CreateEvent extends Component {
   continue = e => {
     e.preventDefault();
@@ -390,7 +389,19 @@ class CreateEvent extends Component {
                       class="with-gap"
                       name="group2"
                       type="checkbox"
-                      value="Vision"
+                      value="Inclusive"
+                      onChange={handleArray("disability_types")}
+                    />
+                    <span>Inclusive</span>
+                  </label>
+                </div>
+                <div class="col s6">
+                  <label>
+                    <input
+                      class="with-gap"
+                      name="group2"
+                      type="checkbox"
+                      value="Other"
                       onChange={handleArray("disability_types")}
                     />
                     <span>Other</span>

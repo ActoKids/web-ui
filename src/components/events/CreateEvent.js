@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createEvent } from "../../store/actions/eventActions";
-import { Redirect } from 'react-router-dom'; 
 
 
 class CreateEvent extends Component {
@@ -11,19 +10,17 @@ class CreateEvent extends Component {
   };
 
   render() {
-    const { values, handleChange, handleDate, handleArray } = this.props;
+    const {
+      values,
+      handleChange,
 
-    // const auth = this.props.isAuthenticated;
-
-    // console.log("Create Event page: ", auth);
-
-    // if(!auth) return <Redirect to='/' />
-
+      handleArray
+    } = this.props;
 
     return (
       <div className="container">
         <form className="white">
-          <h5 className="grey-text text-darken-3">Create A New Event</h5>
+          <h5 className="grey-text text-darken-3">Event Information</h5>
           <div className="input-field ">
             <label htmlFor="text">Event Title</label>
             <input
@@ -34,15 +31,7 @@ class CreateEvent extends Component {
             />
           </div>
           <br />
-          <div className="input-field ">
-            <label htmlFor="text">Event Link</label>
-            <input
-              type="text"
-              defaultValue={values.event_link}
-              onChange={handleChange("event_link")}
-            />
-          </div>
-          <br />
+
           <div
             className="input-field"
             id="activity_type"
@@ -51,7 +40,7 @@ class CreateEvent extends Component {
           >
             <span class="grey-text">Activity Type</span>
             <div class="row">
-              <div class="col s2">
+              <div>
                 <label>
                   <input
                     class="with-gap"
@@ -64,8 +53,8 @@ class CreateEvent extends Component {
                   <span>Camp</span>
                 </label>
               </div>
-
-              <div class="col s2">
+              <br />
+              <div>
                 <label>
                   <input
                     class="with-gap"
@@ -78,7 +67,8 @@ class CreateEvent extends Component {
                   <span>Music</span>
                 </label>
               </div>
-              <div class="col s2">
+              <br />
+              <div>
                 <label>
                   <input
                     class="with-gap"
@@ -91,7 +81,8 @@ class CreateEvent extends Component {
                   <span>Museum</span>
                 </label>
               </div>
-              <div class="col s2">
+              <br />
+              <div>
                 <label>
                   <input
                     class="with-gap"
@@ -104,7 +95,8 @@ class CreateEvent extends Component {
                   <span>Sport</span>
                 </label>
               </div>
-              <div class="col s2">
+              <br />
+              <div>
                 <label>
                   <input
                     class="with-gap"
@@ -117,7 +109,8 @@ class CreateEvent extends Component {
                   <span>Outdoor & Nature</span>
                 </label>
               </div>
-              <div class="col s2">
+              <br />
+              <div>
                 <label>
                   <input
                     class="with-gap"
@@ -142,79 +135,6 @@ class CreateEvent extends Component {
               required="required"
             />
           </div>
-          <div className="input-field">
-            <label htmlFor="text">Name of Organization</label>
-            <input
-              type="text"
-              defaultValue={values.org_name}
-              onChange={handleChange("org_name")}
-              required="required"
-            />
-          </div>
-          <div className="input-field">
-            <label htmlFor="text">Location</label>
-            <input
-              type="text"
-              defaultValue={values.location_name}
-              onChange={handleChange("location_name")}
-              required="required"
-            />
-          </div>
-          <div className="input-field">
-            <label htmlFor="text">Location Address</label>
-            <input
-              type="text"
-              defaultValue={values.location_address}
-              onChange={handleChange("location_address")}
-              required="required"
-            />
-          </div>
-          <div className="input-field">
-            <label htmlFor="text">Contact Name</label>
-            <input
-              type="text"
-              defaultValue={values.contact_name}
-              onChange={handleChange("contact_name")}
-            />
-          </div>
-          <div className="input-field">
-            <label htmlFor="text">Contact Phone Number</label>
-            <input
-              type="text"
-              defaultValue={values.contact_phone}
-              onChange={handleChange("contact_phone")}
-            />
-          </div>
-          <div className="input-field">
-            <label htmlFor="text">Contact Email Address</label>
-            <input
-              type="text"
-              defaultValue={values.contact_email}
-              onChange={handleChange("contact_email")}
-            />
-          </div>
-
-          <div class="row">
-            <span class="grey-text">Start Date & Time</span>
-            <input
-              type="date"
-              class="datetimepicker"
-              type="datetime-local"
-              defaultValue={values.start_date_time}
-              onChange={handleDate("start_date_time")}
-              required="required"
-            />
-          </div>
-          <div class="row">
-            <span class="grey-text">End Date & Time</span>
-            <input
-              type="date"
-              class="datetimepicker"
-              type="datetime-local"
-              defaultValue={values.end_date_time}
-              onChange={handleDate("end_date_time")}
-            />
-          </div>
 
           <div
             className="input-field"
@@ -223,7 +143,7 @@ class CreateEvent extends Component {
           >
             <span class="grey-text">Event Frequency</span>
             <div class="row">
-              <div class="col s2">
+              <div>
                 <label>
                   <input
                     class="with-gap"
@@ -235,8 +155,8 @@ class CreateEvent extends Component {
                   <span>Once</span>
                 </label>
               </div>
-
-              <div class="col s2">
+              <br />
+              <div>
                 <label>
                   <input
                     class="with-gap"
@@ -248,7 +168,8 @@ class CreateEvent extends Component {
                   <span>Daily</span>
                 </label>
               </div>
-              <div class="col s2">
+              <br />
+              <div>
                 <label>
                   <input
                     class="with-gap"
@@ -260,7 +181,8 @@ class CreateEvent extends Component {
                   <span>Weekly</span>
                 </label>
               </div>
-              <div class="col s2">
+              <br />
+              <div>
                 <label>
                   <input
                     class="with-gap"
@@ -274,7 +196,7 @@ class CreateEvent extends Component {
               </div>
             </div>
           </div>
-
+          <br />
           <div className="input-field">
             <label htmlFor="text">Event Price</label>
             <input
@@ -365,7 +287,7 @@ class CreateEvent extends Component {
             >
               <span class="grey-text">Disability Types</span>
               <div class="row">
-                <div class="col s2">
+                <div class="col s6">
                   <label>
                     <input
                       class="with-gap"
@@ -378,7 +300,7 @@ class CreateEvent extends Component {
                   </label>
                 </div>
 
-                <div class="col s2">
+                <div class="col s6">
                   <label>
                     <input
                       class="with-gap"
@@ -390,7 +312,7 @@ class CreateEvent extends Component {
                     <span>Cognitive</span>
                   </label>
                 </div>
-                <div class="col s2">
+                <div class="col s6">
                   <label>
                     <input
                       class="with-gap"
@@ -402,7 +324,7 @@ class CreateEvent extends Component {
                     <span>Hearing</span>
                   </label>
                 </div>
-                <div class="col s2">
+                <div class="col s6">
                   <label>
                     <input
                       class="with-gap"
@@ -414,7 +336,7 @@ class CreateEvent extends Component {
                     <span>Mobility</span>
                   </label>
                 </div>
-                <div class="col s2">
+                <div class="col s6">
                   <label>
                     <input
                       class="with-gap"
@@ -426,7 +348,7 @@ class CreateEvent extends Component {
                     <span>Sensory</span>
                   </label>
                 </div>
-                <div class="col s2">
+                <div class="col s6">
                   <label>
                     <input
                       class="with-gap"
@@ -438,7 +360,7 @@ class CreateEvent extends Component {
                     <span>Targeted Available</span>
                   </label>
                 </div>
-                <div class="col s2">
+                <div class="col s6">
                   <label>
                     <input
                       class="with-gap"
@@ -450,7 +372,7 @@ class CreateEvent extends Component {
                     <span>Wheelchair</span>
                   </label>
                 </div>
-                <div class="col s2">
+                <div class="col s6">
                   <label>
                     <input
                       class="with-gap"
@@ -462,27 +384,38 @@ class CreateEvent extends Component {
                     <span>Vision</span>
                   </label>
                 </div>
-              </div>
-              <div class="file-field input-field">
-              <span class="grey-text">Image URL :</span>  
-                  <input
-                    type="text"
-                    defaultValue={values.picture_url}
-                    onChange={handleChange("picture_url")}
-                  />
-                
+                <div class="col s6">
+                  <label>
+                    <input
+                      class="with-gap"
+                      name="group2"
+                      type="checkbox"
+                      value="Vision"
+                      onChange={handleArray("disability_types")}
+                    />
+                    <span>Other</span>
+                  </label>
                 </div>
               </div>
+              <div class="file-field input-field">
+                <span class="grey-text">Image URL :</span>
+                <input
+                  type="text"
+                  defaultValue={values.picture_url}
+                  onChange={handleChange("picture_url")}
+                />
+              </div>
             </div>
+          </div>
 
           <button
             class="btn red lighten-1 z-depth-0"
             type="submit"
             name="action"
+            //disabled={this.validateCheck}
             onClick={this.continue}
           >
             continue
-            <i class="material-icons right">send</i>
           </button>
         </form>
       </div>

@@ -97,6 +97,7 @@ class Dashboard extends Component {
             if is not, then redirect to sign in page*/}
 
             //do not change to '/get' until you know the user exists first
+
         if(!auth) return <Redirect to='/' />
 
         return (

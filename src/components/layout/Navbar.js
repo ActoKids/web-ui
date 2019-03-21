@@ -12,7 +12,7 @@ const Navbar = (props) => {
                             else display link to sign in page */}  
                         <div className="container">{
                                 props.props.isAuthenticated ?
-                                    <Link to='/dashboard' className="brand-logo">ActoKids</Link>
+                                    <Link to='/dashboard' className="brand-logo">ActoKids2</Link>
                                 :
                                 <Link to='/' className="brand-logo">ActoKids</Link>
                         }</div>

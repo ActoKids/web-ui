@@ -93,20 +93,6 @@ const EventDetails = (props) => {
                         </div>
                     </div>
                 </div>
-
-                {/* Links displayed on the right */}
-                <div className="col s3">
-                    <Link className="" to={{pathname: '/update', state: {event:event}}}>
-                        <button className="option-btn btn-floating btn-small waves-effect waves-light yellow">
-                            <i className="small material-icons">edit</i>
-                        </button>
-                    </Link>
-                    <Link className="" to={'/'}>
-                        <button className="option-btn btn-floating btn-small waves-effect waves-light red">
-                            <i className="small material-icons">delete</i>
-                        </button>
-                    </Link>
-                </div>
             </div>
         </div>
 

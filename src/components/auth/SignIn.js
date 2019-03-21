@@ -16,6 +16,8 @@ export default class SignIn extends Component {
 
         // this.handleChange = this.handleChange.bind(this);
         // this.handleSubmit = this.handleSubmit.bind(this);
+        console.log("this.props.isAuthenticated: ", this.props.isAuthenticated);
+
 
     }
 
@@ -54,7 +56,9 @@ export default class SignIn extends Component {
 			alert(e.message);
 			this.setState({ isLoading: false });
 		}
-	};
+    };
+    
+        
 
     render() {
         

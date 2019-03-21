@@ -14,24 +14,15 @@ const EventList = ({events}) => {
             {/* Mapping events means that each individual event can be
                 read by EventSummary.js */}
             {events && events.map(event => {
-                if (event.event_status === "pending") {
                     return (
                         <div>
                             <EventSummary event={event} key={events.event_id}/>                   
                         </div>
                     )
-                } 
+                
                    
             })}
-            {events && events.map(event => {
-                if (event.event_status === "confirmed") {
-                    return (
-                        <div>
-                            <ConfirmedEvents event={event} key={events.event_id}/>                   
-                        </div>
-                    )
-                } 
-            })}       
+                 
         </div>
     )
 }

@@ -10,8 +10,8 @@ const EventSummary = ({event}) => {
     // console.log(event)
 
     const imgStyles = {
-        'padding-top': '15px',
-        'padding-right': '20px',
+        'paddingTop': '15px',
+        'paddingRight': '20px',
         'width': '75px',
     }
 
@@ -31,11 +31,11 @@ const EventSummary = ({event}) => {
                             <p className="grey-text">Hosted By {event.org_name}</p>
                         </div>
                     </div>
-                </Link>  
+                </Link>
             </div>
             <div className="card-image">
-                <img src={event.picture_url} alt="Org Picture" style={imgStyles} />     
-            </div>      
+                <img src={event.picture_url} alt="Org Picture" style={imgStyles} />
+            </div>
         </div>
     )
 }

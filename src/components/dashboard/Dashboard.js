@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { API } from 'aws-amplify';
-import Options from './Options'
 import EventList from '../events/EventList'
 import Fuse from 'fuse.js';
 
@@ -35,7 +34,11 @@ class Dashboard extends Component {
                     filteredEvents: response.Items,
                 });
             })
+
+            
     }
+
+
 
     componentDidMount() {
         this.getEvents();
@@ -106,7 +109,6 @@ class Dashboard extends Component {
                 
             <div className="container">
                 <h3>Dashboard</h3>
-                <Options />         
 
                 {/* insert filter/search bar here */}
                 <div class="input-field">

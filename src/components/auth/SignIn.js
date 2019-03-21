@@ -53,7 +53,6 @@ export default class SignIn extends Component {
 
             //if auth fails or not possible
         )} catch (e) {
-			alert(e.message);
 			this.setState({ isLoading: false });
 		}
     };

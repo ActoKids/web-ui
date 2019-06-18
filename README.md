@@ -1,3 +1,33 @@
+Wireframe
+<img width="717" alt="actokids-wireframe" src="https://user-images.githubusercontent.com/16545169/51289505-45a92a00-19b5-11e9-96fb-7b4276afeb34.png">
+
+Home Page
+<img width="745" alt="actokids-home-wireframe" src="https://user-images.githubusercontent.com/16545169/51289168-06c6a480-19b4-11e9-8e89-ab6184616c41.png">
+ 
+Activities Page
+<img width="529" alt="actokids-activities-wireframe" src="https://user-images.githubusercontent.com/16545169/51289225-3675ac80-19b4-11e9-9e86-4e261223c53d.png">
+
+Calendar Page
+<img width="836" alt="actokids-calendar-wireframe" src="https://user-images.githubusercontent.com/16545169/51289229-3b3a6080-19b4-11e9-9ac5-09225eb9a31a.png">
+
+About Page
+<img width="849" alt="actokids-about-wireframe" src="https://user-images.githubusercontent.com/16545169/51289239-41c8d800-19b4-11e9-9f9a-2d429d73c121.png">
+
+Account Page: Login or Create Account 
+<img width="835" alt="actokids-account-home-wireframe" src="https://user-images.githubusercontent.com/16545169/51289280-66bd4b00-19b4-11e9-9d17-f87c9c317686.png">
+
+Create Account 
+<img width="834" alt="actokids-create-account-wireframe" src="https://user-images.githubusercontent.com/16545169/51289284-6c1a9580-19b4-11e9-9c15-44bf9a1234c1.png">
+
+Create Event
+<img width="423" alt="actokids-create-event-wireframe" src="https://user-images.githubusercontent.com/16545169/51289290-72107680-19b4-11e9-81b4-335f05dac864.png">
+
+Contact Page
+<img width="814" alt="actokids-contact-wireframe" src="https://user-images.githubusercontent.com/16545169/51289294-76d52a80-19b4-11e9-8052-5018161a4dcf.png">
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
